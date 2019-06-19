@@ -58,4 +58,4 @@ $(".tablas").on("click", ".btnEliminarCliente", function(){
 
 })
 
-//Proyecto IAF
+//Pro
