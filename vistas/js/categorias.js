@@ -55,3 +55,4 @@ $(".tablas").on("click", ".btnEliminarCategoria", function(){
 	 })
 
 })
+//Proyecto IAF
