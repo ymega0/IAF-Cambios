@@ -10,6 +10,8 @@ class ControladorClientes{
 
 		if(isset($_POST["nuevoCliente"])){
 
+			/* Agregar en Maticula  Números y Letras*/
+
 			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoCliente"]) &&
 			   preg_match('/^[0-9]+$/', $_POST["nuevoDocumentoId"]) &&
 			   preg_match('/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/', $_POST["nuevoEmail"]) && 

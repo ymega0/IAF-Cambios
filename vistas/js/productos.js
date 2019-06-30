@@ -277,14 +277,14 @@ $(".tablaProductos tbody").on("click", "button.btnEliminarProducto", function(){
 	
 	swal({
 
-		title: '¿Está seguro de borrar el producto?',
+		title: '¿Está Seguro de Borrar La Materia?',
 		text: "¡Si no lo está puede cancelar la accíón!",
 		type: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         cancelButtonText: 'Cancelar',
-        confirmButtonText: 'Si, borrar producto!'
+        confirmButtonText: 'Si, Borrar Materia!'
         }).then(function(result) {
         if (result.value) {
 

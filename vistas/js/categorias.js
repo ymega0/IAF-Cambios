@@ -36,14 +36,14 @@ $(".tablas").on("click", ".btnEliminarCategoria", function(){
 	 var idCategoria = $(this).attr("idCategoria");
 
 	 swal({
-	 	title: '¿Está seguro de borrar la Escuela?',
+	 	title: '¿Está Seguro de Borrar la Carrera?',
 	 	text: "¡Si no lo está puede cancelar la acción!",
 	 	type: 'warning',
 	 	showCancelButton: true,
 	 	confirmButtonColor: '#3085d6',
 	 	cancelButtonColor: '#d33',
 	 	cancelButtonText: 'Cancelar',
-	 	confirmButtonText: 'Si, borrar Escuela!'
+	 	confirmButtonText: 'Si, borrar la Carrera!'
 	 }).then(function(result){
 
 	 	if(result.value){

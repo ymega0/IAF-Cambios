@@ -80,6 +80,7 @@ if($_SESSION["perfil"] == "Especial"){
            <th>MAtricula Interna</th>
            <th>Matricula Oficial</th>
            <th>Estatus</th>
+           <th>Acciones</th>
 
          </tr> 
 

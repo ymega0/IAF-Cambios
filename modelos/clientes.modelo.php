@@ -10,7 +10,7 @@ class ModeloClientes{
 
 	static public function mdlIngresarCliente($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, documento, email, telefono, direccion, fecha_nacimiento) VALUES (:nombre, :documento, :email, :telefono, :direccion, :fecha_nacimiento)");
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(`alumno_id`, `nombre`, `apellido_paterno`, `fecha_nacimiento`, `lugar_nacimiento`, `nacionalidad`, `curp`, `domicilio_particular`, `entre_calles`, `municipio`, `estado`, `codigo_postal`, `tutor`, `genero`, `telefono`, `nivel_educativo`, `grado`, `grupo`, `matricula_interna`, `matricula_oficial`, `estatus`) VALUES (:alumno_id, :nombre, :apellido_paterno, :fecha_nacimiento, :lugar_nacimiento, :nacionalidad, :curp, :domicilio_particular, :entre_calles, :municipio, :estado, :codigo_postal, :tutor, :genero, :telefono, :nivel_educativo, :grado, :grupo, :matricula_interna, :matricula_ofcial, :estatus)");
 
 		$stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
 		$stmt->bindParam(":documento", $datos["documento"], PDO::PARAM_INT);
