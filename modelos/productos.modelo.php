@@ -41,11 +41,11 @@ class ModeloProductos{
 	=============================================*/
 	static public function mdlIngresarProducto($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(idcarrera, grado, materia) VALUES (:idcarrera, :grado, :materia");
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(idcarrera, grado, materia) VALUES (:idcarrera, :grado, :materia)");
 
-		$stmt->bindParam(":idcarrera", $datos["id_categoria"], PDO::PARAM_INT);
-		$stmt->bindParam(":grado", $datos["codigo"], PDO::PARAM_STR);
-		$stmt->bindParam(":materia", $datos["descripcion"], PDO::PARAM_STR);
+		$stmt->bindParam(":idcarrera", $datos["id_carrera"], PDO::PARAM_INT);
+		$stmt->bindParam(":grado", $datos["grado"], PDO::PARAM_STR);
+		$stmt->bindParam(":materia", $datos["materia"], PDO::PARAM_STR);
 		
 
 		if($stmt->execute()){

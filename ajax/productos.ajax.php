@@ -15,7 +15,7 @@ class AjaxProductos{
 
   public function ajaxCrearCodigoProducto(){
 
-  	$item = "id_categoria";
+  	$item = "idcarrera";
   	$valor = $this->idCategoria;
     $orden = "id";
 
