@@ -150,7 +150,7 @@ $(".porcentaje").on("ifChecked",function(){
 
 /*=============================================
 SUBIENDO LA FOTO DEL PRODUCTO
-=============================================*/
+=============================================
 
 $(".nuevaImagen").change(function(){
 
@@ -158,7 +158,7 @@ $(".nuevaImagen").change(function(){
 	
 	/*=============================================
   	VALIDAMOS EL FORMATO DE LA IMAGEN SEA JPG O PNG
-  	=============================================*/
+  	=============================================
 
   	if(imagen["type"] != "image/jpeg" && imagen["type"] != "image/png"){
 
@@ -196,7 +196,7 @@ $(".nuevaImagen").change(function(){
   		})
 
   	}
-})
+})*/
 
 /*=============================================
 EDITAR PRODUCTO

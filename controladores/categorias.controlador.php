@@ -71,7 +71,7 @@ class ControladorCategorias{
 
 	static public function ctrMostrarCategorias($item, $valor){
 
-		$tabla = "categorias";
+		$tabla = "carrera";
 
 		$respuesta = ModeloCategorias::mdlMostrarCategorias($tabla, $item, $valor);
 

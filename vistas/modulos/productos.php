@@ -115,7 +115,7 @@ MODAL AGREGAR PRODUCTO
           <div class="box-body">
 
 
-            <!-- ENTRADA PARA SELECCIONAR CATEGORÍA -->
+            <!-- ENTRADA PARA SELECCIONAR CARRERA -->
 
             <div class="form-group">
               
@@ -125,7 +125,7 @@ MODAL AGREGAR PRODUCTO
 
                 <select class="form-control input-lg" id="nuevaCategoria" name="nuevaCategoria" required>
                   
-                  <option value="">Selecionar Escuela</option>
+                  <option value="">Selecionar Carrera</option>
 
                   <?php
 
@@ -136,7 +136,7 @@ MODAL AGREGAR PRODUCTO
 
                   foreach ($categorias as $key => $value) {
                     
-                    echo '<option value="'.$value["id"].'">'.$value["categoria"].'</option>';
+                    echo '<option value="'.$value["idcarrera"].'">'.$value["nombre"].'</option>';
                   }
 
                   ?>
@@ -175,7 +175,7 @@ MODAL AGREGAR PRODUCTO
 
             </div>
 
-             <!-- ENTRADA PARA STOCK -->
+           <!--   ENTRADA PARA STOCK 
 
              <div class="form-group">
               
@@ -189,7 +189,7 @@ MODAL AGREGAR PRODUCTO
 
             </div>
 
-             <!-- ENTRADA PARA PRECIO COMPRA -->
+             <!-- ENTRADA PARA PRECIO COMPRA 
 
              <div class="form-group row">
 
@@ -205,7 +205,7 @@ MODAL AGREGAR PRODUCTO
 
                 </div>
 
-                <!-- ENTRADA PARA PRECIO VENTA -->
+                <!-- ENTRADA PARA PRECIO VENTA 
 
                 <div class="col-xs-6">
                 
@@ -219,7 +219,7 @@ MODAL AGREGAR PRODUCTO
                 
                   <br>
 
-                  <!-- CHECKBOX PARA PORCENTAJE -->
+                  <!-- CHECKBOX PARA PORCENTAJE 
 
                   <div class="col-xs-6">
                     
@@ -235,7 +235,7 @@ MODAL AGREGAR PRODUCTO
 
                   </div>
 
-                  <!-- ENTRADA PARA PORCENTAJE -->
+                  <!-- ENTRADA PARA PORCENTAJE 
 
                   <div class="col-xs-6" style="padding:0">
                     
@@ -253,7 +253,7 @@ MODAL AGREGAR PRODUCTO
 
             </div>
 
-            <!-- ENTRADA PARA SUBIR FOTO -->
+            <!-- ENTRADA PARA SUBIR FOTO 
 
              <div class="form-group">
               
@@ -270,7 +270,7 @@ MODAL AGREGAR PRODUCTO
           </div>
 
         </div>
-
+-->
         <!--=====================================
         PIE DEL MODAL
         ======================================-->
