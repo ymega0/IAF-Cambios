@@ -56,15 +56,9 @@ if($_SESSION["perfil"] == "Vendedor"){
          <tr>
            
            <th style="width:10px">#</th>
-           <th>Imagen</th>
-           <th>Código</th>
-           <th>Descripción</th>
            <th>Escuela</th>
-           <th>Lugares Disponibles</th>
-           <th>Costo Inscripción</th>
-           <th>Costo Mensualidad</th>
-           <th>Agregado</th>
-           <th>Acciones</th>
+           <th>Materia</th>
+           
            
          </tr> 
 
