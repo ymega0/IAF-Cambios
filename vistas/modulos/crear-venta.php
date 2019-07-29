@@ -242,7 +242,7 @@ if($_SESSION["perfil"] == "Especial"){
                 <hr>
 
                 <!--=====================================
-                ENTRADA MÉTODO DE PAGO            
+                ENTRADA MÉTODO DE PAGO
                 ======================================-->
 
                 <div class="form-group row">
@@ -255,7 +255,7 @@ if($_SESSION["perfil"] == "Especial"){
                         <option value="">Seleccione método de pago</option>
                         <option value="Efectivo">Efectivo</option>
                         <option value="TC">Tarjeta Crédito</option>
-                        <option value="TD">Tarjeta Débito</option>            
+                        <option value="TD">Tarjeta Débito</option>                  
                       </select>    
 
                     </div>
@@ -482,4 +482,3 @@ MODAL AGREGAR CLIENTE
   </div>
 
 </div>
- 

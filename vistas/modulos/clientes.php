@@ -58,28 +58,22 @@ if($_SESSION["perfil"] == "Especial"){
          <tr>
            
            <th style="width:10px">#</th>
-           <th>IDAlunno</th>
            <th>Nombre</th>
-           <th>Apellidos</th>
-           <th>Fecha Nacimiento</th>
-           <th>Lugar Nacimiento</th>
+           <th>Apellido Paterno</th>
+           <th>Fecha nacimiento</th>
+           <th>Lugar De Nacimiento</th>
            <th>Nacionalidad</th>
            <th>CURP</th>
-           <th>Domicilio</th>
+           <th>Domicilio Particular</th>
            <th>Entre Calles</th>
            <th>Municipio</th>
            <th>Estado</th>
-           <th>Codigo Postal</th>
-           <th>tutor</th>
-           <th>Genero</th>
-           <th>Telefono</th>
-           <th>IDCarrera</th>
-           <th>Nivel Educativo</th>
-           <th>Grado</th>
-           <th>Grupo</th>
-           <th>MAtricula Interna</th>
-           <th>Matricula Oficial</th>
-           <th>Estatus</th>
+           <th>Documento ID</th>
+           <th>Email</th>
+           <th>Teléfono</th>
+           <th>Total Pagos</th>
+           <th>Último Pago</th>
+           <th>Ingreso al sistema</th>
            <th>Acciones</th>
 
          </tr> 
@@ -104,15 +98,29 @@ if($_SESSION["perfil"] == "Especial"){
 
                     <td>'.$value["nombre"].'</td>
 
+                    <td>'.$value["apellido_paterno"].'</td>
+
+                    <td>'.$value["fecha_nacimiento"].'</td> 
+
+                    <td>'.$value["lugar_nacimiento"].'</td>
+
+                    <td>'.$value["nacionalidad"].'</td>
+
+                    <td>'.$value["curp"].'</td>
+
+                    <td>'.$value["domicilio_particular"].'</td>
+
+                    <td>'.$value["entre_calles"].'</td> 
+
+                    <td>'.$value["municipio"].'</td>
+
+                    <td>'.$value["estado"].'</td>
+
                     <td>'.$value["documento"].'</td>
 
                     <td>'.$value["email"].'</td>
 
-                    <td>'.$value["telefono"].'</td>
-
-                    <td>'.$value["direccion"].'</td>
-
-                    <td>'.$value["fecha_nacimiento"].'</td>             
+                    <td>'.$value["telefono"].'</td>           
 
                     <td>'.$value["compras"].'</td>
 
@@ -186,20 +194,6 @@ MODAL AGREGAR CLIENTE
 
           <div class="box-body">
 
-            <!-- ENTRADA PARA EL ID ALUMNO -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoIDAlumno" placeholder="Ingresar ID Alumno" required>
-
-              </div>
-
-            </div>
-
             <!-- ENTRADA PARA EL NOMBRE -->
             
             <div class="form-group">
@@ -214,7 +208,7 @@ MODAL AGREGAR CLIENTE
 
             </div>
 
-            <!-- ENTRADA PARA EL APELLIDOS -->
+            <!-- ENTRADA PARA EL Apellido Paterno -->
             
             <div class="form-group">
               
@@ -222,41 +216,27 @@ MODAL AGREGAR CLIENTE
               
                 <span class="input-group-addon"><i class="fa fa-user"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoApellidos" placeholder="Ingresar Apellidos" required>
+                <input type="text" class="form-control input-lg" name="nuevoapellido_paterno" placeholder="Ingresar Apellido Parteno" required>
 
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA EL FECHA NACIMIENTO -->
+            <!-- ENTRADA PARA LA FECHA DE NACIMIENTO -->
             
             <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-Calendar"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoFechaNacimiento" placeholder="Ingresar Fecha De Nacimiento" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EL LUGAR DE NACIMIENTO -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoLugarNacimiento" placeholder="Ingresar Lugar De Nacimiento" required>
+                <input type="text" class="form-control input-lg" name="nuevaFechaNacimiento" placeholder="Ingresar fecha nacimiento" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask required>
 
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA EL NACIONALIDAD -->
+             <!-- ENTRADA PARA EL LUGAR DE NACIMIENTO -->
             
             <div class="form-group">
               
@@ -264,13 +244,13 @@ MODAL AGREGAR CLIENTE
               
                 <span class="input-group-addon"><i class="fa fa-user"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevaNacionalidad" placeholder="Ingresar Nacionalidad" required>
+                <input type="text" class="form-control input-lg" name="nuevolugar_nacimiento" placeholder="Ingresar Lugar de Nacimiento" required>
 
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA EL CURP -->
+            <!-- ENTRADA PARA Nacionalidad -->
             
             <div class="form-group">
               
@@ -278,13 +258,13 @@ MODAL AGREGAR CLIENTE
               
                 <span class="input-group-addon"><i class="fa fa-user"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoCURP" placeholder="Ingresar CURP" required>
+                <input type="text" class="form-control input-lg" name="nuevonacionalidad" placeholder="Ingresar nacionalidad" required>
 
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA EL DOMICILIO PARTICULA -->
+            <!-- ENTRADA PARA CURP -->
             
             <div class="form-group">
               
@@ -292,194 +272,110 @@ MODAL AGREGAR CLIENTE
               
                 <span class="input-group-addon"><i class="fa fa-user"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoDomicilioParticular" placeholder="Ingresar Domicilio Particular" required>
+                <input type="text" class="form-control input-lg" name="nuevocurp" placeholder="Ingresar curp" required>
 
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA EL Entre Que Calles -->
+            <!-- ENTRADA PARA LA DIRECCIÓN -->
             
             <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoEntreCalles" placeholder="Ingresar Entre Calles" required>
+                <input type="text" class="form-control input-lg" name="nuevodomicilio_particular" placeholder="Ingresar Domicilio Particular" required>
 
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA EL MUNICIPIO -->
+            <!-- ENTRADA PARA ENTRE CALLES -->
             
             <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoMunicipio" placeholder="Ingresar Municipio" required>
+                <input type="text" class="form-control input-lg" name="nuevoentre_calles" placeholder="Ingresar Entre Que Calles" required>
 
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA EL ESTADO -->
+            <!-- ENTRADA PARA Municipio -->
             
             <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoEstado" placeholder="Ingresar Estado" required>
+                <input type="text" class="form-control input-lg" name="nuevomunicipio" placeholder="Ingresar Municipio" required>
 
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA EL CODIGO POSTAL -->
+            <!-- ENTRADA PARA Municipio -->
             
             <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoCodigo" placeholder="Ingresar Codigo Postal" required>
+                <input type="text" class="form-control input-lg" name="nuevoestado" placeholder="Ingresar Estado" required>
 
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA EL TUTOR -->
+            <!-- ENTRADA PARA EL DOCUMENTO ID -->
             
             <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-key"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoTutor" placeholder="Ingresar Tutor" required>
+                <input type="number" min="0" class="form-control input-lg" name="nuevoDocumentoId" placeholder="Ingresar documento" required>
 
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA EL Genero -->
+            <!-- ENTRADA PARA EL EMAIL -->
             
             <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-envelope"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoGenero" placeholder="Ingresar Genero" required>
+                <input type="email" class="form-control input-lg" name="nuevoEmail" placeholder="Ingresar email" required>
 
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA EL TELEFONO -->
+            <!-- ENTRADA PARA EL TELÉFONO -->
             
             <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-phone"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoTelefono" placeholder="Ingresar Telefono" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EL Nivel Educativo-->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoNivelEducativo" placeholder="Ingresar Nivel Educativo" required>
+                <input type="text" class="form-control input-lg" name="nuevoTelefono" placeholder="Ingresar teléfono" data-inputmask="'mask':'(999) 999-9999'" data-mask required>
 
               </div>
 
             </div>
-
-            <!-- ENTRADA PARA EL GRADO -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoGrado" placeholder="Ingresar Grado" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EL GrupoE -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoGrupo" placeholder="Ingresar Grupo" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EL MATRICULAINTERNA -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoMatriculaInterna" placeholder="Ingresar Matricula Interna" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EL MATRICULA OFICIAL -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoMatriculaOficial" placeholder="Ingresar Matricula Oficial" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EL Estatus -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoEstatus" placeholder="Ingresar Estatus" required>
-
-              </div>
-
-            </div>
-
+  
           </div>
 
         </div>
@@ -543,20 +439,6 @@ MODAL EDITAR CLIENTE
 
           <div class="box-body">
 
-            <!-- ENTRADA PARA EL ID ALUMNO -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoIDAlumno" placeholder="Ingresar ID Alumno" required>
-
-              </div>
-
-            </div>
-
             <!-- ENTRADA PARA EL NOMBRE -->
             
             <div class="form-group">
@@ -565,13 +447,13 @@ MODAL EDITAR CLIENTE
               
                 <span class="input-group-addon"><i class="fa fa-user"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoCliente" placeholder="Ingresar nombre" required>
-
+                <input type="text" class="form-control input-lg" name="editarCliente" id="editarCliente" required>
+                <input type="hidden" id="idCliente" name="idCliente">
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA EL APELLIDOS -->
+            <!-- ENTRADA PARA EL Apellido Paterno -->
             
             <div class="form-group">
               
@@ -579,27 +461,41 @@ MODAL EDITAR CLIENTE
               
                 <span class="input-group-addon"><i class="fa fa-user"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoApellidos" placeholder="Ingresar Apellidos" required>
-
+                <input type="text" class="form-control input-lg" name="editarapellido_paterno" id="editarapellido_paterno" required>
+               
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA EL FECHA NACIMIENTO -->
+             <!-- ENTRADA PARA LA FECHA DE NACIMIENTO -->
             
             <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-Calendar"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoFechaNacimiento" placeholder="Ingresar Fecha De Nacimiento" required>
+                <input type="text" class="form-control input-lg" name="editarFechaNacimiento" id="editarFechaNacimiento"  data-inputmask="'alias': 'yyyy/mm/dd'" data-mask required>
 
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA EL LUGAR DE NACIMIENTO -->
+             <!-- ENTRADA PARA EL lugar nacimiento -->
+            
+             <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="editarlugar_nacimiento" id="editarlugar_nacimiento" required>
+               
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA EL Nacionalidad -->
             
             <div class="form-group">
               
@@ -607,13 +503,13 @@ MODAL EDITAR CLIENTE
               
                 <span class="input-group-addon"><i class="fa fa-user"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoLugarNacimiento" placeholder="Ingresar Lugar De Nacimiento" required>
-
+                <input type="text" class="form-control input-lg" name="editarnacionalidad" id="editarnacionalidad" required>
+               
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA EL NACIONALIDAD -->
+            <!-- ENTRADA PARA EL curp -->
             
             <div class="form-group">
               
@@ -621,217 +517,106 @@ MODAL EDITAR CLIENTE
               
                 <span class="input-group-addon"><i class="fa fa-user"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevaNacionalidad" placeholder="Ingresar Nacionalidad" required>
-
+                <input type="text" class="form-control input-lg" name="editarcurp" id="editarcurp" required>
+               
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA EL CURP -->
+            <!-- ENTRADA PARA LA DIRECCIÓN -->
             
             <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoCURP" placeholder="Ingresar CURP" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EL DOMICILIO PARTICULA -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoDomicilioParticular" placeholder="Ingresar Domicilio Particular" required>
+                <input type="text" class="form-control input-lg" name="editardomicilio_particular" id="editardomicilio_particular"  required>
 
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA EL Entre Que Calles -->
+             <!-- ENTRADA PARA Entre Que Calles -->
             
-            <div class="form-group">
+             <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoEntreCalles" placeholder="Ingresar Entre Calles" required>
+                <input type="text" class="form-control input-lg" name="editarentre_calles" id="editarentre_calles"  required>
 
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA EL MUNICIPIO -->
+            <!-- ENTRADA PARA MUNICIPIO -->
             
             <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoMunicipio" placeholder="Ingresar Municipio" required>
+                <input type="text" class="form-control input-lg" name="editarmunicipio" id="editarmunicipio"  required>
 
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA EL ESTADO -->
+             <!-- ENTRADA PARA Estado-->
             
-            <div class="form-group">
+             <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoEstado" placeholder="Ingresar Estado" required>
+                <input type="text" class="form-control input-lg" name="editarestado" id="editarestado"  required>
 
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA EL CODIGO POSTAL -->
+
+            <!-- ENTRADA PARA EL DOCUMENTO ID -->
             
             <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-key"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoCodigo" placeholder="Ingresar Codigo Postal" required>
+                <input type="number" min="0" class="form-control input-lg" name="editarDocumentoId" id="editarDocumentoId" required>
 
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA EL TUTOR -->
+            <!-- ENTRADA PARA EL EMAIL -->
             
             <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-envelope"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoTutor" placeholder="Ingresar Tutor" required>
+                <input type="email" class="form-control input-lg" name="editarEmail" id="editarEmail" required>
 
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA EL Genero -->
+            <!-- ENTRADA PARA EL TELÉFONO -->
             
             <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-phone"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoGenero" placeholder="Ingresar Genero" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EL TELEFONO -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoTelefono" placeholder="Ingresar Telefono" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EL Nivel Educativo-->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoNivelEducativo" placeholder="Ingresar Nivel Educativo" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EL GRADO -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoGrado" placeholder="Ingresar Grado" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EL GrupoE -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoGrupo" placeholder="Ingresar Grupo" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EL MATRICULAINTERNA -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoMatriculaInterna" placeholder="Ingresar Matricula Interna" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EL MATRICULA OFICIAL -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoMatriculaOficial" placeholder="Ingresar Matricula Oficial" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EL Estatus -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoEstatus" placeholder="Ingresar Estatus" required>
+                <input type="text" class="form-control input-lg" name="editarTelefono" id="editarTelefono" data-inputmask="'mask':'(999) 999-9999'" data-mask required>
 
               </div>
 

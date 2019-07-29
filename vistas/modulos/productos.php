@@ -19,7 +19,7 @@ if($_SESSION["perfil"] == "Vendedor"){
     
     <h1>
       
-      Administrar Materias
+      Administrar Carrera
     
     </h1>
 
@@ -27,7 +27,7 @@ if($_SESSION["perfil"] == "Vendedor"){
       
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
       
-      <li class="active">Administrar Materias</li>
+      <li class="active">Administrar Carrera</li>
     
     </ol>
 
@@ -41,7 +41,7 @@ if($_SESSION["perfil"] == "Vendedor"){
   
         <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarProducto">
           
-          Agregar Materia
+          Agregar Carrera
 
         </button>
 
@@ -56,18 +56,15 @@ if($_SESSION["perfil"] == "Vendedor"){
          <tr>
            
            <th style="width:10px">#</th>
-           <th>ID Materia</th>
-           <th>Nombre</th>
-           <th>Modalidad</th>
-           <th>Curso</th>
-           <th>Turno</th>
-           <th>Grado</th>
-           <th>Grupo</th>
-           <th>Semestre</th>
-           <th>Profesor</th>
-           <th>Calificion</th>
+           <th>Imagen</th>
+           <th>Código</th>
+           <th>Descripción</th>
+           <th>Escuela</th>
+           <th>Lugares Disponibles</th>
+           <th>Costo Inscripción</th>
+           <th>Costo Mensualidad</th>
+           <th>Agregado</th>
            <th>Acciones</th>
-           
            
          </tr> 
 
@@ -105,7 +102,7 @@ MODAL AGREGAR PRODUCTO
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Agregar Materia</h4>
+          <h4 class="modal-title">Agregar Carrera</h4>
 
         </div>
 
@@ -128,7 +125,7 @@ MODAL AGREGAR PRODUCTO
 
                 <select class="form-control input-lg" id="nuevaCategoria" name="nuevaCategoria" required>
                   
-                  <option value="">Selecionar Carrera</option>
+                  <option value="">Selecionar Escuela</option>
 
                   <?php
 
@@ -150,151 +147,129 @@ MODAL AGREGAR PRODUCTO
 
             </div>
 
-            <!-- ENTRADA PARA EL ID MATERIA -->
+            <!-- ENTRADA PARA EL CÓDIGO -->
             
             <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-code"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoIDMateria" placeholder="Ingresar ID Materia" required>
+                <input type="text" class="form-control input-lg" id="nuevoCodigo" name="nuevoCodigo" placeholder="Ingresar código de la Carrera" required>
 
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA EL Nombre -->
-            
-            <div class="form-group">
+            <!-- ENTRADA PARA LA DESCRIPCIÓN -->
+
+             <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoNombre" placeholder="Ingresar Nombre" required>
+                <input type="text" class="form-control input-lg" name="nuevaDescripcion" placeholder="Ingresar descripción" required>
 
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA MODALIDAD -->
-            
-            <div class="form-group">
+             <!-- ENTRADA PARA STOCK -->
+
+             <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-check"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoIDAlumno" placeholder="Ingresar ID Alumno" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EL ID Curso -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoCurso" placeholder="Ingresar Curso" required>
+                <input type="number" class="form-control input-lg" name="nuevoStock" min="0" placeholder="Lugares Disponibles" required>
 
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA EL Curso -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+             <!-- ENTRADA PARA PRECIO COMPRA -->
 
-                <input type="text" class="form-control input-lg" name="nuevoCurso" placeholder="Ingresar Curso" required>
+             <div class="form-group row">
 
-              </div>
+                <div class="col-xs-6">
+                
+                  <div class="input-group">
+                  
+                    <span class="input-group-addon"><i class="fa fa-arrow-up"></i></span> 
 
-            </div>
+                    <input type="number" class="form-control input-lg" id="nuevoPrecioCompra" name="nuevoPrecioCompra" step="any" min="0" placeholder="Costo de Inscripción" required>
 
-            <!-- ENTRADA PARA EL Turno -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                  </div>
 
-                <input type="text" class="form-control input-lg" name="nuevoTurno" placeholder="Ingresar El Turno" required>
+                </div>
 
-              </div>
+                <!-- ENTRADA PARA PRECIO VENTA -->
 
-            </div>
+                <div class="col-xs-6">
+                
+                  <div class="input-group">
+                  
+                    <span class="input-group-addon"><i class="fa fa-arrow-down"></i></span> 
 
-            <!-- ENTRADA PARA EL ID Grado -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                    <input type="number" class="form-control input-lg" id="nuevoPrecioVenta" name="nuevoPrecioVenta" step="any" min="0" placeholder="Costo de Mensualidad" required>
 
-                <input type="text" class="form-control input-lg" name="nuevoGrado" placeholder="Ingresar Grado" required>
+                  </div>
+                
+                  <br>
 
-              </div>
+                  <!-- CHECKBOX PARA PORCENTAJE -->
 
-            </div>
+                  <div class="col-xs-6">
+                    
+                    <div class="form-group">
+                      
+                      <label>
+                        
+                        <input type="checkbox" class="minimal porcentaje" checked>
+                        Utilizar procentaje
+                      </label>
 
-            <!-- ENTRADA PARA EL SEMESTRE -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                    </div>
 
-                <input type="text" class="form-control input-lg" name="nuevoSemestre" placeholder="Ingresar Semestre" required>
+                  </div>
 
-              </div>
+                  <!-- ENTRADA PARA PORCENTAJE -->
 
-            </div>
+                  <div class="col-xs-6" style="padding:0">
+                    
+                    <div class="input-group">
+                      
+                      <input type="number" class="form-control input-lg nuevoPorcentaje" min="0" value="40" required>
 
-            <!-- ENTRADA PARA EL PROFESOR -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                      <span class="input-group-addon"><i class="fa fa-percent"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoProfesor" placeholder="Ingresar Profesor" required>
+                    </div>
 
-              </div>
+                  </div>
+
+                </div>
 
             </div>
 
-            <!-- ENTRADA PARA CALIFICACION -->
-            
-            <div class="form-group">
+            <!-- ENTRADA PARA SUBIR FOTO -->
+
+             <div class="form-group">
               
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+              <div class="panel">SUBIR IMAGEN</div>
 
-                <input type="text" class="form-control input-lg" name="nuevoIDAlumno" placeholder="Ingresar ID Alumno" required>
+              <input type="file" class="nuevaImagen" name="nuevaImagen">
 
-              </div>
+              <p class="help-block">Peso máximo de la imagen 2MB</p>
 
-            </div>
+              <img src="vistas/img/productos/default/anonymous.png" class="img-thumbnail previsualizar" width="100px">
 
             </div>
 
-            </div>
+          </div>
 
-           
+        </div>
 
         <!--=====================================
         PIE DEL MODAL
@@ -304,7 +279,7 @@ MODAL AGREGAR PRODUCTO
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="submit" class="btn btn-primary">Guardar Materia</button>
+          <button type="submit" class="btn btn-primary">Guardar Carrera</button>
 
         </div>
 
@@ -343,7 +318,7 @@ MODAL EDITAR PRODUCTO
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Editar Materia</h4>
+          <h4 class="modal-title">Editar Carrera</h4>
 
         </div>
 
@@ -374,143 +349,125 @@ MODAL EDITAR PRODUCTO
 
             </div>
 
-            <!-- ENTRADA PARA EL ID MATERIA -->
+            <!-- ENTRADA PARA EL CÓDIGO -->
             
             <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-code"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoIDMateria" placeholder="Ingresar ID Materia" required>
+                <input type="text" class="form-control input-lg" id="editarCodigo" name="editarCodigo" readonly required>
 
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA EL Nombre -->
-            
-            <div class="form-group">
+            <!-- ENTRADA PARA LA DESCRIPCIÓN -->
+
+             <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoNombre" placeholder="Ingresar Nombre" required>
+                <input type="text" class="form-control input-lg" id="editarDescripcion" name="editarDescripcion" required>
 
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA MODALIDAD -->
-            
-            <div class="form-group">
+             <!-- ENTRADA PARA STOCK -->
+
+             <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-check"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoIDAlumno" placeholder="Ingresar ID Alumno" required>
+                <input type="number" class="form-control input-lg" id="editarStock" name="editarStock" min="0" required>
 
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA EL ID Curso -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+             <!-- ENTRADA PARA PRECIO COMPRA -->
 
-                <input type="text" class="form-control input-lg" name="nuevoCurso" placeholder="Ingresar Curso" required>
+             <div class="form-group row">
 
-              </div>
+                <div class="col-xs-6">
+                
+                  <div class="input-group">
+                  
+                    <span class="input-group-addon"><i class="fa fa-arrow-up"></i></span> 
 
-            </div>
+                    <input type="number" class="form-control input-lg" id="editarPrecioCompra" name="editarPrecioCompra" step="any" min="0" required>
 
-            <!-- ENTRADA PARA EL Curso -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                  </div>
 
-                <input type="text" class="form-control input-lg" name="nuevoCurso" placeholder="Ingresar Curso" required>
+                </div>
 
-              </div>
+                <!-- ENTRADA PARA PRECIO VENTA -->
 
-            </div>
+                <div class="col-xs-6">
+                
+                  <div class="input-group">
+                  
+                    <span class="input-group-addon"><i class="fa fa-arrow-down"></i></span> 
 
-            <!-- ENTRADA PARA EL Turno -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                    <input type="number" class="form-control input-lg" id="editarPrecioVenta" name="editarPrecioVenta" step="any" min="0" readonly required>
 
-                <input type="text" class="form-control input-lg" name="nuevoTurno" placeholder="Ingresar El Turno" required>
+                  </div>
+                
+                  <br>
 
-              </div>
+                  <!-- CHECKBOX PARA PORCENTAJE -->
 
-            </div>
+                  <div class="col-xs-6">
+                    
+                    <div class="form-group">
+                      
+                      <label>
+                        
+                        <input type="checkbox" class="minimal porcentaje" checked>
+                        Utilizar procentaje
+                      </label>
 
-            <!-- ENTRADA PARA EL ID Grado -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                    </div>
 
-                <input type="text" class="form-control input-lg" name="nuevoGrado" placeholder="Ingresar Grado" required>
+                  </div>
 
-              </div>
+                  <!-- ENTRADA PARA PORCENTAJE -->
 
-            </div>
+                  <div class="col-xs-6" style="padding:0">
+                    
+                    <div class="input-group">
+                      
+                      <input type="number" class="form-control input-lg nuevoPorcentaje" min="0" value="40" required>
 
-            <!-- ENTRADA PARA EL SEMESTRE -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                      <span class="input-group-addon"><i class="fa fa-percent"></i></span>
 
-                <input type="text" class="form-control input-lg" name="nuevoSemestre" placeholder="Ingresar Semestre" required>
+                    </div>
 
-              </div>
+                  </div>
+
+                </div>
 
             </div>
 
-            <!-- ENTRADA PARA EL PROFESOR -->
-            
-            <div class="form-group">
+            <!-- ENTRADA PARA SUBIR FOTO -->
+
+             <div class="form-group">
               
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+              <div class="panel">SUBIR IMAGEN</div>
 
-                <input type="text" class="form-control input-lg" name="nuevoProfesor" placeholder="Ingresar Profesor" required>
+              <input type="file" class="nuevaImagen" name="editarImagen">
 
-              </div>
+              <p class="help-block">Peso máximo de la imagen 2MB</p>
 
-            </div>
+              <img src="vistas/img/productos/default/anonymous.png" class="img-thumbnail previsualizar" width="100px">
 
-            <!-- ENTRADA PARA CALIFICACION -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoIDAlumno" placeholder="Ingresar ID Alumno" required>
-
-              </div>
+              <input type="hidden" name="imagenActual" id="imagenActual">
 
             </div>
 

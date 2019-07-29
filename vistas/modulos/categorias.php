@@ -20,7 +20,7 @@ if($_SESSION["perfil"] == "Vendedor"){
     
     <h1>
       
-      Administrar Carreras
+      Administrar Escuelas
     
     </h1>
 
@@ -28,7 +28,7 @@ if($_SESSION["perfil"] == "Vendedor"){
       
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
       
-      <li class="active">Administrar Carreras</li>
+      <li class="active">Administrar Escuelas</li>
     
     </ol>
 
@@ -42,7 +42,7 @@ if($_SESSION["perfil"] == "Vendedor"){
   
         <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarCategoria">
           
-          Agregar Carrera
+          Agregar Escuela
 
         </button>
 
@@ -57,13 +57,8 @@ if($_SESSION["perfil"] == "Vendedor"){
          <tr>
            
            <th style="width:10px">#</th>
-           <th>IDCarrera</th>
-           <th>Nombre</th>
-           <th>Cuenta Ingreso</th>
-           <th>Ciclo Escolar</th>
-           
+           <th>Escuela</th>
            <th>Acciones</th>
-           
 
          </tr> 
 
@@ -139,7 +134,7 @@ MODAL AGREGAR CATEGORÍA
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Agregar Carrera</h4>
+          <h4 class="modal-title">Agregar Escuela</h4>
 
         </div>
 
@@ -151,57 +146,15 @@ MODAL AGREGAR CATEGORÍA
 
           <div class="box-body">
 
-           <!-- ENTRADA PARA EL ID Carrera -->
-            
-           <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoIDCarrera" placeholder="Ingresar ID Carrera" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EL Nombre -->
+            <!-- ENTRADA PARA EL NOMBRE -->
             
             <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoNombre" placeholder="Ingresar Nombre" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA Cuenta Ingreso -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoCuentaIngreso" placeholder="Ingresar Cuenta Ingreso" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EL Ciclo Escolar -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoCicloEscolar" placeholder="Ingresar Ciclo Escolar" required>
+                <input type="text" class="form-control input-lg" name="nuevaCategoria" placeholder="Ingresar Nombre de la Escuela" required>
 
               </div>
 
@@ -219,7 +172,7 @@ MODAL AGREGAR CATEGORÍA
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="submit" class="btn btn-primary">Guardar Carrera</button>
+          <button type="submit" class="btn btn-primary">Guardar Escuela</button>
 
         </div>
 
@@ -258,7 +211,7 @@ MODAL EDITAR CATEGORÍA
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Editar Carrera</h4>
+          <h4 class="modal-title">Editar Escuela</h4>
 
         </div>
 
@@ -272,57 +225,15 @@ MODAL EDITAR CATEGORÍA
 
             <!-- ENTRADA PARA EL NOMBRE -->
             
-            <!-- ENTRADA PARA EL ID Carrera -->
-            
-           <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoIDCarrera" placeholder="Ingresar ID Carrera" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EL Nombre -->
-            
             <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoNombre" placeholder="Ingresar Nombre" required>
+                <input type="text" class="form-control input-lg" name="editarCategoria" id="editarCategoria" required>
 
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA Cuenta Ingreso -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoCuentaIngreso" placeholder="Ingresar Cuenta Ingreso" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EL Ciclo Escolar -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoCicloEscolar" placeholder="Ingresar Ciclo Escolar" required>
+                 <input type="hidden"  name="idCategoria" id="idCategoria" required>
 
               </div>
 

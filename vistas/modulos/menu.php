@@ -39,7 +39,7 @@
 				<a href="categorias">
 
 					<i class="fa fa-th"></i>
-					<span>Carreras</span>
+					<span>Escuelas</span>
 
 				</a>
 
@@ -50,7 +50,7 @@
 				<a href="productos">
 
 					<i class="fa fa-product-hunt"></i>
-					<span>Materias</span>
+					<span>Carreras</span>
 
 				</a>
 

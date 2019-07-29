@@ -24,7 +24,7 @@ class ControladorCategorias{
 
 					swal({
 						  type: "success",
-						  title: "La Carrera ha sido guardada correctamente",
+						  title: "La Escuela ha sido guardada correctamente",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
@@ -46,7 +46,7 @@ class ControladorCategorias{
 
 					swal({
 						  type: "error",
-						  title: "¡El nombre de la carrera no puede ir vacía o llevar caracteres especiales!",
+						  title: "¡El nombre de la Escuela no puede ir vacía o llevar caracteres especiales!",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
@@ -102,7 +102,7 @@ class ControladorCategorias{
 
 					swal({
 						  type: "success",
-						  title: "La Carrera ha sido cambiada correctamente",
+						  title: "La Escuela ha sido cambiada correctamente",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
@@ -124,7 +124,7 @@ class ControladorCategorias{
 
 					swal({
 						  type: "error",
-						  title: "¡La Carrera no puede ir vacía o llevar caracteres especiales!",
+						  title: "¡La Escuela no puede ir vacía o llevar caracteres especiales!",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
@@ -162,7 +162,7 @@ class ControladorCategorias{
 
 					swal({
 						  type: "success",
-						  title: "La Carrera ha sido borrada correctamente",
+						  title: "La  Escuela ha sido borrada correctamente",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
