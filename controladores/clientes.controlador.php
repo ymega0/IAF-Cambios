@@ -12,32 +12,24 @@ class ControladorClientes{
 
 			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoCliente"]) &&
 			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoapellido_paterno"]) &&
-			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevolugar_nacimiento"]) &&
-			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevonacionalidad"]) &&
-			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevocurp"]) &&
-			   preg_match('/^[#\.\-a-zA-Z0-9 ]+$/', $_POST["nuevodomicilio_particular"]) &&
-			   preg_match('/^[#\.\-a-zA-Z0-9 ]+$/', $_POST["nuevoentre_calles"]) &&
-			   preg_match('/^[#\.\-a-zA-Z0-9 ]+$/', $_POST["nuevomunicipio"]) &&
-			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoestado"]) &&
+			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoLugarNacimiento"]) &&
+			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoNacionalidad"]) &&
 			   preg_match('/^[0-9]+$/', $_POST["nuevoDocumentoId"]) &&
 			   preg_match('/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/', $_POST["nuevoEmail"]) && 
-			   preg_match('/^[()\-0-9 ]+$/', $_POST["nuevoTelefono"])){
+			   preg_match('/^[()\-0-9 ]+$/', $_POST["nuevoTelefono"]) && 
+			   preg_match('/^[#\.\-a-zA-Z0-9 ]+$/', $_POST["nuevaDireccion"])){
 
 			   	$tabla = "clientes";
 
 				   $datos = array("nombre"=>$_POST["nuevoCliente"],
-							   "apellido_paterno"=>$_POST["nuevoapellido_paterno"],
-							   "fecha_nacimiento"=>$_POST["nuevaFechaNacimiento"],
-							   "lugar_nacimiento"=>$_POST["nuevolugar_nacimiento"],
-							   "nacionalidad"=>$_POST["nuevonacionalidad"],
-							   "curp"=>$_POST["nuevocurp"],
-							   "domicilio_particular"=>$_POST["nuevodomicilio_particular"],
-							   "entre_calles"=>$_POST["nuevoentre_calles"],
-							   "municipio"=>$_POST["nuevomunicipio"],
-							   "estado"=>$_POST["nuevoestado"],
+								  "apellido_paterno"=>$_POST["nuevoapellido_paterno"],
+								  "fecha_nacimiento"=>$_POST["nuevaFechaNacimiento"],
+								  "LugarNacimiento"=>$_POST["nuevoLugarNacimiento"],
+								  "Nacionalidad"=>$_POST["nuevoNacionalidad"],
 					           "documento"=>$_POST["nuevoDocumentoId"],
 					           "email"=>$_POST["nuevoEmail"],
-					           "telefono"=>$_POST["nuevoTelefono"]);
+					           "telefono"=>$_POST["nuevoTelefono"],
+					           "direccion"=>$_POST["nuevaDireccion"]);
 
 			   	$respuesta = ModeloClientes::mdlIngresarCliente($tabla, $datos);
 
@@ -113,16 +105,12 @@ class ControladorClientes{
 
 			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarCliente"]) &&
 			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarapellido_paterno"]) &&
-			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarlugar_nacimiento"]) &&
-			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarnacionalidad"]) &&
-			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarcurp"]) &&
-			   preg_match('/^[#\.\-a-zA-Z0-9 ]+$/', $_POST["editardomicilio_particular"]) &&
-			   preg_match('/^[#\.\-a-zA-Z0-9 ]+$/', $_POST["editarentre_calles"]) &&
-			   preg_match('/^[#\.\-a-zA-Z0-9 ]+$/', $_POST["editarmunicipio"]) &&
-			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarestado"]) &&
+			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarLugarNacimiento"]) &&
+			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarNacionalidad"]) &&
 			   preg_match('/^[0-9]+$/', $_POST["editarDocumentoId"]) &&
 			   preg_match('/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/', $_POST["editarEmail"]) && 
-			   preg_match('/^[()\-0-9 ]+$/', $_POST["editarTelefono"])){
+			   preg_match('/^[()\-0-9 ]+$/', $_POST["editarTelefono"]) && 
+			   preg_match('/^[#\.\-a-zA-Z0-9 ]+$/', $_POST["editarDireccion"])){
 
 			   	$tabla = "clientes";
 
@@ -130,17 +118,12 @@ class ControladorClientes{
 								  "nombre"=>$_POST["editarCliente"],
 								  "apellido_paterno"=>$_POST["editarapellido_paterno"],
 								  "fecha_nacimiento"=>$_POST["editarFechaNacimiento"],
-								  "lugar_nacimiento"=>$_POST["editarlugar_nacimiento"],
-								  "nacionalidad"=>$_POST["editarnacionalidad"],
-								  "curp"=>$_POST["editarcurp"],
-								  "domicilio_particular"=>$_POST["editardomicilio_particular"],
-								  "entre_calles"=>$_POST["editarentre_calles"],
-								  "municipio"=>$_POST["editarmunicipio"],
-								  "estado"=>$_POST["editarestado"],
-					              "documento"=>$_POST["editarDocumentoId"],
-					              "email"=>$_POST["editarEmail"],
-					              "telefono"=>$_POST["editarTelefono"]);
-					           
+								  "LugarNacimiento"=>$_POST["editarLugarNacimiento"],
+								  "Nacionalidad"=>$_POST["editarNacionalidad"],
+					           "documento"=>$_POST["editarDocumentoId"],
+					           "email"=>$_POST["editarEmail"],
+					           "telefono"=>$_POST["editarTelefono"],
+					           "direccion"=>$_POST["editarDireccion"]);
 
 			   	$respuesta = ModeloClientes::mdlEditarCliente($tabla, $datos);
 

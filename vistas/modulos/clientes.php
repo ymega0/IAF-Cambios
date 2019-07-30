@@ -60,17 +60,14 @@ if($_SESSION["perfil"] == "Especial"){
            <th style="width:10px">#</th>
            <th>Nombre</th>
            <th>Apellido Paterno</th>
-           <th>Fecha nacimiento</th>
-           <th>Lugar De Nacimiento</th>
+           <th>Fecha nacimiento</th> 
+           <th>Lugar Nacimiento</th>
            <th>Nacionalidad</th>
-           <th>CURP</th>
-           <th>Domicilio Particular</th>
-           <th>Entre Calles</th>
-           <th>Municipio</th>
-           <th>Estado</th>
            <th>Documento ID</th>
            <th>Email</th>
            <th>Teléfono</th>
+           <th>Dirección</th>
+           
            <th>Total Pagos</th>
            <th>Último Pago</th>
            <th>Ingreso al sistema</th>
@@ -100,27 +97,21 @@ if($_SESSION["perfil"] == "Especial"){
 
                     <td>'.$value["apellido_paterno"].'</td>
 
-                    <td>'.$value["fecha_nacimiento"].'</td> 
+                    <td>'.$value["fecha_nacimiento"].'</td>  
 
-                    <td>'.$value["lugar_nacimiento"].'</td>
+                    <td>'.$value["LugarNacimiento"].'</td>
 
-                    <td>'.$value["nacionalidad"].'</td>
-
-                    <td>'.$value["curp"].'</td>
-
-                    <td>'.$value["domicilio_particular"].'</td>
-
-                    <td>'.$value["entre_calles"].'</td> 
-
-                    <td>'.$value["municipio"].'</td>
-
-                    <td>'.$value["estado"].'</td>
+                    <td>'.$value["Nacionalidad"].'</td>
 
                     <td>'.$value["documento"].'</td>
 
                     <td>'.$value["email"].'</td>
 
-                    <td>'.$value["telefono"].'</td>           
+                    <td>'.$value["telefono"].'</td>
+
+                    <td>'.$value["direccion"].'</td>
+
+                               
 
                     <td>'.$value["compras"].'</td>
 
@@ -208,7 +199,7 @@ MODAL AGREGAR CLIENTE
 
             </div>
 
-            <!-- ENTRADA PARA EL Apellido Paterno -->
+            <!-- ENTRADA PARA EL Apellido Parterno -->
             
             <div class="form-group">
               
@@ -216,14 +207,14 @@ MODAL AGREGAR CLIENTE
               
                 <span class="input-group-addon"><i class="fa fa-user"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoapellido_paterno" placeholder="Ingresar Apellido Parteno" required>
+                <input type="text" class="form-control input-lg" name="nuevoapellido_paterno" placeholder="Ingresar Apellido Paterno" required>
 
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA LA FECHA DE NACIMIENTO -->
-            
+            <!-- ENTRADA PARA EL FECHA NACIMIENTO -->
+
             <div class="form-group">
               
               <div class="input-group">
@@ -236,49 +227,7 @@ MODAL AGREGAR CLIENTE
 
             </div>
 
-             <!-- ENTRADA PARA EL LUGAR DE NACIMIENTO -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevolugar_nacimiento" placeholder="Ingresar Lugar de Nacimiento" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA Nacionalidad -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevonacionalidad" placeholder="Ingresar nacionalidad" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA CURP -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevocurp" placeholder="Ingresar curp" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA LA DIRECCIÓN -->
+            <!-- ENTRADA PARA Lugar de Nacimiento -->
             
             <div class="form-group">
               
@@ -286,13 +235,13 @@ MODAL AGREGAR CLIENTE
               
                 <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevodomicilio_particular" placeholder="Ingresar Domicilio Particular" required>
+                <input type="text" class="form-control input-lg" name="nuevoLugarNacimiento" placeholder="Ingresar Lugar Nacimiento" required>
 
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA ENTRE CALLES -->
+            <!-- ENTRADA PARA NACIONALIDAD -->
             
             <div class="form-group">
               
@@ -300,35 +249,7 @@ MODAL AGREGAR CLIENTE
               
                 <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoentre_calles" placeholder="Ingresar Entre Que Calles" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA Municipio -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevomunicipio" placeholder="Ingresar Municipio" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA Municipio -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoestado" placeholder="Ingresar Estado" required>
+                <input type="text" class="form-control input-lg" name="nuevoNacionalidad" placeholder="Ingresar Nacionalidad" required>
 
               </div>
 
@@ -375,6 +296,24 @@ MODAL AGREGAR CLIENTE
               </div>
 
             </div>
+
+            <!-- ENTRADA PARA LA DIRECCIÓN -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="nuevaDireccion" placeholder="Ingresar dirección" required>
+
+              </div>
+
+            </div>
+
+             <!-- ENTRADA PARA LA FECHA DE NACIMIENTO -->
+            
+            
   
           </div>
 
@@ -453,22 +392,22 @@ MODAL EDITAR CLIENTE
 
             </div>
 
-            <!-- ENTRADA PARA EL Apellido Paterno -->
+             <!-- ENTRADA PARA EL Apellido Paterno -->
             
-            <div class="form-group">
+             <div class="form-group">
               
               <div class="input-group">
               
                 <span class="input-group-addon"><i class="fa fa-user"></i></span> 
 
                 <input type="text" class="form-control input-lg" name="editarapellido_paterno" id="editarapellido_paterno" required>
-               
+                
               </div>
 
             </div>
 
-             <!-- ENTRADA PARA LA FECHA DE NACIMIENTO -->
-            
+            <!-- ENTRADA PARA LA FECHA DE NACIMIENTO -->
+
             <div class="form-group">
               
               <div class="input-group">
@@ -481,49 +420,7 @@ MODAL EDITAR CLIENTE
 
             </div>
 
-             <!-- ENTRADA PARA EL lugar nacimiento -->
-            
-             <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="editarlugar_nacimiento" id="editarlugar_nacimiento" required>
-               
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EL Nacionalidad -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="editarnacionalidad" id="editarnacionalidad" required>
-               
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA EL curp -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="editarcurp" id="editarcurp" required>
-               
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA LA DIRECCIÓN -->
+            <!-- ENTRADA PARA Lugar de Nacimiento -->
             
             <div class="form-group">
               
@@ -531,27 +428,13 @@ MODAL EDITAR CLIENTE
               
                 <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="editardomicilio_particular" id="editardomicilio_particular"  required>
+                <input type="text" class="form-control input-lg" name="editarLugarNacimiento" id="editarLugarNacimiento"  required>
 
               </div>
 
             </div>
 
-             <!-- ENTRADA PARA Entre Que Calles -->
-            
-             <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="editarentre_calles" id="editarentre_calles"  required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA MUNICIPIO -->
+            <!-- ENTRADA PARA NACIONALIDAD -->
             
             <div class="form-group">
               
@@ -559,26 +442,11 @@ MODAL EDITAR CLIENTE
               
                 <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="editarmunicipio" id="editarmunicipio"  required>
+                <input type="text" class="form-control input-lg" name="editarNacionalidad" id="editarNacionalidad"  required>
 
               </div>
 
             </div>
-
-             <!-- ENTRADA PARA Estado-->
-            
-             <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="editarestado" id="editarestado"  required>
-
-              </div>
-
-            </div>
-
 
             <!-- ENTRADA PARA EL DOCUMENTO ID -->
             
@@ -621,6 +489,24 @@ MODAL EDITAR CLIENTE
               </div>
 
             </div>
+
+            <!-- ENTRADA PARA LA DIRECCIÓN -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="editarDireccion" id="editarDireccion"  required>
+
+              </div>
+
+            </div>
+
+             <!-- ENTRADA PARA LA FECHA DE NACIMIENTO -->
+            
+            
   
           </div>
 
