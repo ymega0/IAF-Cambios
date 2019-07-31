@@ -10,17 +10,23 @@ class ModeloClientes{
 
 	static public function mdlIngresarCliente($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, apellido_paterno, fecha_nacimiento, LugarNacimiento, Nacionalidad, documento, email, telefono, direccion) VALUES (:nombre, :apellido_paterno, :fecha_nacimiento, :LugarNacimiento, :Nacionalidad, :documento, :email, :telefono, :direccion)");
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, apellido_paterno, fecha_nacimiento, LugarNacimiento, Nacionalidad, CURP, Direccion, EntreCalles, Municipio, Estado, CodigoPostal, Tutor, email, telefono) VALUES (:nombre, :apellido_paterno, :fecha_nacimiento, :LugarNacimiento, :Nacionalidad, :CURP, :Direccion, :EntreCalles, :Municipio, :Estado, :CodigoPostal, :Tutor, :email, :telefono)");
 
 		$stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
 		$stmt->bindParam(":apellido_paterno", $datos["apellido_paterno"], PDO::PARAM_STR);
 		$stmt->bindParam(":fecha_nacimiento", $datos["fecha_nacimiento"], PDO::PARAM_STR);
 		$stmt->bindParam(":LugarNacimiento", $datos["LugarNacimiento"], PDO::PARAM_STR);
 		$stmt->bindParam(":Nacionalidad", $datos["Nacionalidad"], PDO::PARAM_STR);
-		$stmt->bindParam(":documento", $datos["documento"], PDO::PARAM_INT);
+		$stmt->bindParam(":CURP", $datos["CURP"], PDO::PARAM_STR);
+		$stmt->bindParam(":Direccion", $datos["Direccion"], PDO::PARAM_STR);
+		$stmt->bindParam(":EntreCalles", $datos["EntreCalles"], PDO::PARAM_STR);
+		$stmt->bindParam(":Municipio", $datos["Municipio"], PDO::PARAM_STR);
+		$stmt->bindParam(":Estado", $datos["Estado"], PDO::PARAM_STR);
+		$stmt->bindParam(":CodigoPostal", $datos["CodigoPostal"], PDO::PARAM_STR);
+		$stmt->bindParam(":Tutor", $datos["Tutor"], PDO::PARAM_STR);
 		$stmt->bindParam(":email", $datos["email"], PDO::PARAM_STR);
 		$stmt->bindParam(":telefono", $datos["telefono"], PDO::PARAM_STR);
-		$stmt->bindParam(":direccion", $datos["direccion"], PDO::PARAM_STR);
+		
 		
 
 		if($stmt->execute()){
@@ -76,7 +82,7 @@ class ModeloClientes{
 
 	static public function mdlEditarCliente($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET nombre = :nombre, apellido_paterno = :apellido_paterno, fecha_nacimiento = :fecha_nacimiento, LugarNacimiento = :LugarNacimiento, Nacionalidad = :Nacionalidad, documento = :documento, email = :email, telefono = :telefono, direccion = :direccion WHERE id = :id");
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET nombre = :nombre, apellido_paterno = :apellido_paterno, fecha_nacimiento = :fecha_nacimiento, LugarNacimiento = :LugarNacimiento, Nacionalidad = :Nacionalidad, CURP = :CURP, Direccion = :Direccion, EntreCalles = :EntreCalles, Municipio = :Municipio, Estado = :Estado, CodigoPostal = :CodigoPostal, Tutor = :Tutor, email = :email, telefono = :telefono WHERE id = :id");
 
 		$stmt->bindParam(":id", $datos["id"], PDO::PARAM_INT);
 		$stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
@@ -84,10 +90,16 @@ class ModeloClientes{
 		$stmt->bindParam(":fecha_nacimiento", $datos["fecha_nacimiento"], PDO::PARAM_STR);
 		$stmt->bindParam(":LugarNacimiento", $datos["LugarNacimiento"], PDO::PARAM_STR);
 		$stmt->bindParam(":Nacionalidad", $datos["Nacionalidad"], PDO::PARAM_STR);
-		$stmt->bindParam(":documento", $datos["documento"], PDO::PARAM_INT);
+		$stmt->bindParam(":CURP", $datos["CURP"], PDO::PARAM_STR);
+		$stmt->bindParam(":Direccion", $datos["Direccion"], PDO::PARAM_STR);
+		$stmt->bindParam(":EntreCalles", $datos["EntreCalles"], PDO::PARAM_STR);
+		$stmt->bindParam(":Municipio", $datos["Municipio"], PDO::PARAM_STR);
+		$stmt->bindParam(":Estado", $datos["Estado"], PDO::PARAM_STR);
+		$stmt->bindParam(":CodigoPostal", $datos["CodigoPostal"], PDO::PARAM_STR);
+		$stmt->bindParam(":Tutor", $datos["Tutor"], PDO::PARAM_STR);
 		$stmt->bindParam(":email", $datos["email"], PDO::PARAM_STR);
 		$stmt->bindParam(":telefono", $datos["telefono"], PDO::PARAM_STR);
-		$stmt->bindParam(":direccion", $datos["direccion"], PDO::PARAM_STR);
+		
 		
 
 		if($stmt->execute()){
