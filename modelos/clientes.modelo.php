@@ -10,22 +10,70 @@ class ModeloClientes{
 
 	static public function mdlIngresarCliente($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, apellido_paterno, fecha_nacimiento, LugarNacimiento, Nacionalidad, CURP, Direccion, EntreCalles, Municipio, Estado, CodigoPostal, Tutor, email, telefono) VALUES (:nombre, :apellido_paterno, :fecha_nacimiento, :LugarNacimiento, :Nacionalidad, :CURP, :Direccion, :EntreCalles, :Municipio, :Estado, :CodigoPostal, :Tutor, :email, :telefono)");
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(
+			nombre, 
+			apellido_paterno, 
+			apellido_materno, 
+			fecha_nacimiento, 
+			LugarNacimiento, 
+			Nacionalidad, 
+			CURP, 
+			Direccion, 
+			EntreCalles, 
+			Municipio, 
+			Estado, 
+			CodigoPostal, 
+			Tutor, 
+			Genero, 
+			email, 
+			telefono, 
+			NivelEducativo, 
+			Grado, 
+			Grupo, 
+			Matricula) 
+			VALUES 
+			(:nombre, 
+			:apellido_paterno, 
+			:apellido_materno, 
+			:fecha_nacimiento, 
+			:LugarNacimiento, 
+			:Nacionalidad, 
+			:CURP, 
+			:Direccion, 
+			:EntreCalles, 
+			:Municipio, 
+			:Estado, 
+			:CodigoPostal, 
+			:Tutor, 
+			:Genero, 
+			:email, 
+			:telefono, 
+			:NivelEducativo, 
+			:Grado, 
+			:Grupo, 
+			:Matricula)
+			");
 
-		$stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
+		$stmt->bindParam(":nombre",           $datos["nombre"],           PDO::PARAM_STR);
 		$stmt->bindParam(":apellido_paterno", $datos["apellido_paterno"], PDO::PARAM_STR);
+		$stmt->bindParam(":apellido_materno", $datos["apellido_materno"], PDO::PARAM_STR);
 		$stmt->bindParam(":fecha_nacimiento", $datos["fecha_nacimiento"], PDO::PARAM_STR);
-		$stmt->bindParam(":LugarNacimiento", $datos["LugarNacimiento"], PDO::PARAM_STR);
-		$stmt->bindParam(":Nacionalidad", $datos["Nacionalidad"], PDO::PARAM_STR);
-		$stmt->bindParam(":CURP", $datos["CURP"], PDO::PARAM_STR);
-		$stmt->bindParam(":Direccion", $datos["Direccion"], PDO::PARAM_STR);
-		$stmt->bindParam(":EntreCalles", $datos["EntreCalles"], PDO::PARAM_STR);
-		$stmt->bindParam(":Municipio", $datos["Municipio"], PDO::PARAM_STR);
-		$stmt->bindParam(":Estado", $datos["Estado"], PDO::PARAM_STR);
-		$stmt->bindParam(":CodigoPostal", $datos["CodigoPostal"], PDO::PARAM_STR);
-		$stmt->bindParam(":Tutor", $datos["Tutor"], PDO::PARAM_STR);
-		$stmt->bindParam(":email", $datos["email"], PDO::PARAM_STR);
-		$stmt->bindParam(":telefono", $datos["telefono"], PDO::PARAM_STR);
+		$stmt->bindParam(":LugarNacimiento",  $datos["LugarNacimiento"],  PDO::PARAM_STR);
+		$stmt->bindParam(":Nacionalidad",     $datos["Nacionalidad"],     PDO::PARAM_STR);
+		$stmt->bindParam(":CURP",             $datos["CURP"],             PDO::PARAM_STR);
+		$stmt->bindParam(":Direccion",        $datos["Direccion"],        PDO::PARAM_STR);
+		$stmt->bindParam(":EntreCalles",      $datos["EntreCalles"],      PDO::PARAM_STR);
+		$stmt->bindParam(":Municipio",        $datos["Municipio"],        PDO::PARAM_STR);
+		$stmt->bindParam(":Estado",           $datos["Estado"],           PDO::PARAM_STR);
+		$stmt->bindParam(":CodigoPostal",     $datos["CodigoPostal"],     PDO::PARAM_STR);
+		$stmt->bindParam(":Tutor",            $datos["Tutor"],            PDO::PARAM_STR);
+		$stmt->bindParam(":Genero",           $datos["Genero"],           PDO::PARAM_STR);
+		$stmt->bindParam(":email",            $datos["email"],            PDO::PARAM_STR);
+		$stmt->bindParam(":telefono",         $datos["telefono"],         PDO::PARAM_STR);
+		$stmt->bindParam(":NivelEducativo",   $datos["NivelEducativo"],   PDO::PARAM_STR);
+		$stmt->bindParam(":Grado",            $datos["Grado"],            PDO::PARAM_STR);
+		$stmt->bindParam(":Grupo",            $datos["Grupo"],            PDO::PARAM_STR);
+		$stmt->bindParam(":Matricula",        $datos["Matricula"],        PDO::PARAM_STR);
 		
 		
 
@@ -82,23 +130,51 @@ class ModeloClientes{
 
 	static public function mdlEditarCliente($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET nombre = :nombre, apellido_paterno = :apellido_paterno, fecha_nacimiento = :fecha_nacimiento, LugarNacimiento = :LugarNacimiento, Nacionalidad = :Nacionalidad, CURP = :CURP, Direccion = :Direccion, EntreCalles = :EntreCalles, Municipio = :Municipio, Estado = :Estado, CodigoPostal = :CodigoPostal, Tutor = :Tutor, email = :email, telefono = :telefono WHERE id = :id");
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET 
+		nombre = :nombre, 
+		apellido_paterno = :apellido_paterno, 
+		apellido_materno = :apellido_materno, 
+		fecha_nacimiento = :fecha_nacimiento, 
+		LugarNacimiento = :LugarNacimiento, 
+		Nacionalidad = :Nacionalidad, 
+		CURP = :CURP, 
+		Direccion = :Direccion, 
+		EntreCalles = :EntreCalles, 
+		Municipio = :Municipio, 
+		Estado = :Estado, 
+		CodigoPostal = :CodigoPostal, 
+		Tutor = :Tutor, 
+		Genero = :Genero, 
+		email = :email, 
+		telefono = :telefono, 
+		NivelEducativo = :NivelEducativo, 
+		Grado = :Grado, 
+		Grupo = :Grupo, 
+		Matricula = :Matricula 
+		WHERE 
+		id = :id");
 
-		$stmt->bindParam(":id", $datos["id"], PDO::PARAM_INT);
-		$stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
+		$stmt->bindParam(":id",               $datos["id"],               PDO::PARAM_INT);
+		$stmt->bindParam(":nombre",           $datos["nombre"],           PDO::PARAM_STR);
 		$stmt->bindParam(":apellido_paterno", $datos["apellido_paterno"], PDO::PARAM_STR);
+		$stmt->bindParam(":apellido_materno", $datos["apellido_materno"], PDO::PARAM_STR);
 		$stmt->bindParam(":fecha_nacimiento", $datos["fecha_nacimiento"], PDO::PARAM_STR);
-		$stmt->bindParam(":LugarNacimiento", $datos["LugarNacimiento"], PDO::PARAM_STR);
-		$stmt->bindParam(":Nacionalidad", $datos["Nacionalidad"], PDO::PARAM_STR);
-		$stmt->bindParam(":CURP", $datos["CURP"], PDO::PARAM_STR);
-		$stmt->bindParam(":Direccion", $datos["Direccion"], PDO::PARAM_STR);
-		$stmt->bindParam(":EntreCalles", $datos["EntreCalles"], PDO::PARAM_STR);
-		$stmt->bindParam(":Municipio", $datos["Municipio"], PDO::PARAM_STR);
-		$stmt->bindParam(":Estado", $datos["Estado"], PDO::PARAM_STR);
-		$stmt->bindParam(":CodigoPostal", $datos["CodigoPostal"], PDO::PARAM_STR);
-		$stmt->bindParam(":Tutor", $datos["Tutor"], PDO::PARAM_STR);
-		$stmt->bindParam(":email", $datos["email"], PDO::PARAM_STR);
-		$stmt->bindParam(":telefono", $datos["telefono"], PDO::PARAM_STR);
+		$stmt->bindParam(":LugarNacimiento",  $datos["LugarNacimiento"],  PDO::PARAM_STR);
+		$stmt->bindParam(":Nacionalidad",     $datos["Nacionalidad"],     PDO::PARAM_STR);
+		$stmt->bindParam(":CURP",             $datos["CURP"],             PDO::PARAM_STR);
+		$stmt->bindParam(":Direccion",        $datos["Direccion"],        PDO::PARAM_STR);
+		$stmt->bindParam(":EntreCalles",      $datos["EntreCalles"],      PDO::PARAM_STR);
+		$stmt->bindParam(":Municipio",        $datos["Municipio"],        PDO::PARAM_STR);
+		$stmt->bindParam(":Estado",           $datos["Estado"],           PDO::PARAM_STR);
+		$stmt->bindParam(":CodigoPostal",     $datos["CodigoPostal"],     PDO::PARAM_STR);
+		$stmt->bindParam(":Tutor",            $datos["Tutor"],            PDO::PARAM_STR);
+		$stmt->bindParam(":Genero",           $datos["Genero"],           PDO::PARAM_STR);
+		$stmt->bindParam(":email",            $datos["email"],            PDO::PARAM_STR);
+		$stmt->bindParam(":telefono",         $datos["telefono"],         PDO::PARAM_STR);
+		$stmt->bindParam(":NivelEducativo",   $datos["NivelEducativo"],   PDO::PARAM_STR);
+		$stmt->bindParam(":Grado",            $datos["Grado"],            PDO::PARAM_STR);
+		$stmt->bindParam(":Grupo",            $datos["Grupo"],            PDO::PARAM_STR);
+		$stmt->bindParam(":Matricula",        $datos["Matricula"],        PDO::PARAM_STR);
 		
 		
 

@@ -29,7 +29,7 @@ if($_SESSION["perfil"] == "Especial"){
       
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
       
-      <li class="active">Administrar clientes</li>
+      <li class="active">Administrar Estudiante</li>
     
     </ol>
 
@@ -43,7 +43,7 @@ if($_SESSION["perfil"] == "Especial"){
   
         <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarCliente">
           
-          Agregar    Estudiante
+          Agregar Estudiante
 
         </button>
 
@@ -60,6 +60,7 @@ if($_SESSION["perfil"] == "Especial"){
            <th style="width:10px">#</th>
            <th>Nombre</th>
            <th>Apellido Paterno</th>
+           <th>Apellido Materno</th>
            <th>Fecha nacimiento</th> 
            <th>Lugar Nacimiento</th>
            <th>Nacionalidad</th>
@@ -70,8 +71,13 @@ if($_SESSION["perfil"] == "Especial"){
            <th>Estado</th>
            <th>Codigo Postal</th>
            <th>Tutor</th>
+           <th>Genero</th>
            <th>Email</th>
-           <th>Teléfono</th> 
+           <th>Teléfono</th>
+           <th>Nivel Educativo</th>
+           <th>Grado</th>
+           <th>Grupo</th>
+           <th>Matricula</th>
            <th>Total Pagos</th>
            <th>Último Pago</th>
            <th>Ingreso al sistema</th>
@@ -101,6 +107,8 @@ if($_SESSION["perfil"] == "Especial"){
 
                     <td>'.$value["apellido_paterno"].'</td>
 
+                    <td>'.$value["apellido_materno"].'</td>
+
                     <td>'.$value["fecha_nacimiento"].'</td>  
 
                     <td>'.$value["LugarNacimiento"].'</td>
@@ -121,9 +129,19 @@ if($_SESSION["perfil"] == "Especial"){
 
                     <td>'.$value["Tutor"].'</td>
 
+                    <td>'.$value["Genero"].'</td>
+
                     <td>'.$value["email"].'</td>
 
                     <td>'.$value["telefono"].'</td> 
+
+                    <td>'.$value["NivelEducativo"].'</td>
+                    
+                    <td>'.$value["Grado"].'</td>
+
+                    <td>'.$value["Grupo"].'</td>
+
+                    <td>'.$value["Matricula"].'</td>
 
                     <td>'.$value["compras"].'</td>
 
@@ -185,7 +203,7 @@ MODAL AGREGAR CLIENTE
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Agregar cliente</h4>
+          <h4 class="modal-title">Agregar Estudiante</h4>
 
         </div>
 
@@ -225,6 +243,20 @@ MODAL AGREGAR CLIENTE
 
             </div>
 
+            <!-- ENTRADA PARA EL Apellido Materno -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="nuevoapellido_materno" placeholder="Ingresar Apellido Materno" required>
+
+              </div>
+
+            </div>
+
             <!-- ENTRADA PARA EL FECHA NACIMIENTO -->
 
             <div class="form-group">
@@ -259,7 +291,7 @@ MODAL AGREGAR CLIENTE
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-flag"></i></span> 
 
                 <input type="text" class="form-control input-lg" name="nuevoNacionalidad" placeholder="Ingresar Nacionalidad" required>
 
@@ -365,6 +397,20 @@ MODAL AGREGAR CLIENTE
 
             </div>
 
+            <!-- ENTRADA PARA Genero -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="nuevoGenero" placeholder="Ingresar Genero" required>
+
+              </div>
+
+            </div>
+
             <!-- ENTRADA PARA EL EMAIL -->
             
             <div class="form-group">
@@ -393,6 +439,65 @@ MODAL AGREGAR CLIENTE
 
             </div>
 
+            <!-- ENTRADA PARA Nivel Educativo -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="nuevoNivelEducativo" placeholder="Ingresar Nivel Educativo" required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA Grado -->
+                        
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="nuevoGrado" placeholder="Ingresar Grado" required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA Grupo -->
+                        
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="nuevoGrupo" placeholder="Ingresar Grupo" required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA Matricula -->
+                        
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-key"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="nuevoMatricula" placeholder="Ingresar Matricula" required>
+
+              </div>
+
+            </div>
+
+            
+
+
             <!-- ENTRADA PARA LA DIRECCIÓN -->
 
              <!-- ENTRADA PARA LA FECHA DE NACIMIENTO -->
@@ -411,7 +516,7 @@ MODAL AGREGAR CLIENTE
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="submit" class="btn btn-primary">Guardar cliente</button>
+          <button type="submit" class="btn btn-primary">Guardar Estudiante</button>
 
         </div>
 
@@ -450,7 +555,7 @@ MODAL EDITAR CLIENTE
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Editar cliente</h4>
+          <h4 class="modal-title">Editar Estudiante</h4>
 
         </div>
 
@@ -490,6 +595,21 @@ MODAL EDITAR CLIENTE
 
             </div>
 
+            <!-- ENTRADA PARA EL Apellido Materno -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="editarapellido_materno" id="editarapellido_materno" required>
+                
+              </div>
+
+            </div>
+
+
             <!-- ENTRADA PARA LA FECHA DE NACIMIENTO -->
 
             <div class="form-group">
@@ -524,7 +644,7 @@ MODAL EDITAR CLIENTE
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-flag"></i></span> 
 
                 <input type="text" class="form-control input-lg" name="editarNacionalidad" id="editarNacionalidad"  required>
 
@@ -630,6 +750,20 @@ MODAL EDITAR CLIENTE
 
             </div>
 
+            <!-- ENTRADA PARA Genero -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="editarGenero" id="editarGenero"  required>
+
+              </div>
+
+            </div>
+
             <!-- ENTRADA PARA EL EMAIL -->
             
             <div class="form-group">
@@ -653,6 +787,62 @@ MODAL EDITAR CLIENTE
                 <span class="input-group-addon"><i class="fa fa-phone"></i></span> 
 
                 <input type="text" class="form-control input-lg" name="editarTelefono" id="editarTelefono" data-inputmask="'mask':'(999) 999-9999'" data-mask required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA Nivel Educativo -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="editarNivelEducativo" id="editarNivelEducativo"  required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA Nivel Grado -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="editarGrado" id="editarGrado"  required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA Grupo -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="editarGrupo" id="editarGrupo"  required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA Grupo -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-key"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="editarMatricula" id="editarMatricula"  required>
 
               </div>
 
