@@ -77,7 +77,8 @@ if($_SESSION["perfil"] == "Especial"){
            <th>Nivel Educativo</th>
            <th>Grado</th>
            <th>Grupo</th>
-           <th>Matricula</th>
+           <th>MatriculaInterna</th>
+           <th>MatriculaOficial</th>
            <th>Total Pagos</th>
            <th>Último Pago</th>
            <th>Ingreso al sistema</th>
@@ -141,7 +142,9 @@ if($_SESSION["perfil"] == "Especial"){
 
                     <td>'.$value["Grupo"].'</td>
 
-                    <td>'.$value["Matricula"].'</td>
+                    <td>'.$value["MatriculaInterna"].'</td>
+
+                    <td>'.$value["MatriculaOficial"].'</td>
 
                     <td>'.$value["compras"].'</td>
 
@@ -481,7 +484,7 @@ MODAL AGREGAR CLIENTE
 
             </div>
 
-            <!-- ENTRADA PARA Matricula -->
+            <!-- ENTRADA PARA Matricula Interna -->
                         
             <div class="form-group">
               
@@ -489,7 +492,21 @@ MODAL AGREGAR CLIENTE
               
                 <span class="input-group-addon"><i class="fa fa-key"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoMatricula" placeholder="Ingresar Matricula" required>
+                <input type="text" class="form-control input-lg" name="nuevoMatriculaInterna" placeholder="Ingresar Matricula Interna" required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA Matricula Oficial -->
+                        
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-key"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="nuevoMatriculaOficial" placeholder="Ingresar Matricula Oficial" required>
 
               </div>
 
@@ -834,7 +851,7 @@ MODAL EDITAR CLIENTE
 
             </div>
 
-            <!-- ENTRADA PARA Grupo -->
+            <!-- ENTRADA PARA Matricula Interna -->
             
             <div class="form-group">
               
@@ -842,11 +859,27 @@ MODAL EDITAR CLIENTE
               
                 <span class="input-group-addon"><i class="fa fa-key"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="editarMatricula" id="editarMatricula"  required>
+                <input type="text" class="form-control input-lg" name="editarMatriculaInterna" id="editarMatriculaInterna"  required>
 
               </div>
 
             </div>
+
+            <!-- ENTRADA PARA Matricula Oficial -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-key"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="editarMatriculaOficial" id="editarMatriculaOficial"  required>
+
+              </div>
+
+            </div>
+
+            
 
             <!-- ENTRADA PARA LA DIRECCIÓN -->
 

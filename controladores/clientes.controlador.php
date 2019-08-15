@@ -28,7 +28,8 @@ class ControladorClientes{
 			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',                                                                 $_POST["nuevoNivelEducativo"]) &&
 			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',                                                                 $_POST["nuevoGrado"]) &&
 			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',                                                                 $_POST["nuevoGrupo"]) &&
-			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',                                                                 $_POST["nuevoMatricula"])){
+			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',                                                                 $_POST["nuevoMatriculaInterna"]) &&
+			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',                                                                 $_POST["nuevoMatriculaOficial"])){
 
 			   	$tabla = "clientes";
 
@@ -51,7 +52,8 @@ class ControladorClientes{
 								  "NivelEducativo"=>  $_POST["nuevoNivelEducativo"],
 								  "Grado"=>           $_POST["nuevoGrado"],
 								  "Grupo"=>           $_POST["nuevoGrupo"],
-								  "Matricula"=>       $_POST["nuevoMatricula"]);
+								  "MatriculaInterna"=>$_POST["nuevoMatriculaInterna"],
+								  "MatriculaOficial"=>$_POST["nuevoMatriculaOficial"]);
 
 			   	$respuesta = ModeloClientes::mdlIngresarCliente($tabla, $datos);
 
@@ -143,7 +145,8 @@ class ControladorClientes{
 			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',                                                                 $_POST["editarNivelEducativo"]) &&
 			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',                                                                 $_POST["editarGrado"]) &&
 			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',                                                                 $_POST["editarGrupo"]) &&
-			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',                                                                 $_POST["editarMatricula"])){
+			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',                                                                 $_POST["editarMatriculaInterna"]) &&
+			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',                                                                 $_POST["editarMatriculaOficial"])){
 
 			   	$tabla = "clientes";
 
@@ -167,7 +170,8 @@ class ControladorClientes{
 								  "NivelEducativo"=>  $_POST["editarNivelEducativo"],
 								  "Grado"=>           $_POST["editarGrado"],
 								  "Grupo"=>           $_POST["editarGrupo"],
-								  "Matricula"=>       -$_POST["editarMatricula"]);
+								  "MatriculaInterna"=>$_POST["editarMatriculaInterna"],
+								  "MatriculaOficial"=>$_POST["editarMatriculaOficial"]);
 
 			   	$respuesta = ModeloClientes::mdlEditarCliente($tabla, $datos);
 

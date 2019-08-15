@@ -39,8 +39,9 @@ $(".tablas").on("click", ".btnEditarCliente", function(){
          $("#editarNivelEducativo").val(respuesta["NivelEducativo"]);
          $("#editarGrado").val(respuesta["Grado"]);
          $("#editarGrupo").val(respuesta["Grupo"]);
-         $("#editarMatricula").val(respuesta["Matricula"]);
-         $("#editarapellido_materno").val(respuesta["apellido_materno"]);
+         $("#editarMatriculaInterna").val(respuesta["MatriculaInterna"]);
+         $("#editarMatriculaOficial").val(respuesta["MatriculaOficial"]);
+         
 	  }
 
   	})

@@ -30,7 +30,8 @@ class ModeloClientes{
 			NivelEducativo, 
 			Grado, 
 			Grupo, 
-			Matricula) 
+			MatriculaInterna,
+			MatriculaOficial) 
 			VALUES 
 			(:nombre, 
 			:apellido_paterno, 
@@ -51,7 +52,8 @@ class ModeloClientes{
 			:NivelEducativo, 
 			:Grado, 
 			:Grupo, 
-			:Matricula)
+			:MatriculaInterna,
+			:MatriculaOficial)
 			");
 
 		$stmt->bindParam(":nombre",           $datos["nombre"],           PDO::PARAM_STR);
@@ -73,7 +75,8 @@ class ModeloClientes{
 		$stmt->bindParam(":NivelEducativo",   $datos["NivelEducativo"],   PDO::PARAM_STR);
 		$stmt->bindParam(":Grado",            $datos["Grado"],            PDO::PARAM_STR);
 		$stmt->bindParam(":Grupo",            $datos["Grupo"],            PDO::PARAM_STR);
-		$stmt->bindParam(":Matricula",        $datos["Matricula"],        PDO::PARAM_STR);
+		$stmt->bindParam(":MatriculaInterna", $datos["MatriculaInterna"], PDO::PARAM_STR);
+		$stmt->bindParam(":MatriculaOficial", $datos["MatriculaOficial"], PDO::PARAM_STR);
 		
 		
 
@@ -150,7 +153,8 @@ class ModeloClientes{
 		NivelEducativo = :NivelEducativo, 
 		Grado = :Grado, 
 		Grupo = :Grupo, 
-		Matricula = :Matricula 
+		MatriculaInterna = :MatriculaInterna,
+		MatriculaOficial = :MatriculaOficial 
 		WHERE 
 		id = :id");
 
@@ -174,7 +178,8 @@ class ModeloClientes{
 		$stmt->bindParam(":NivelEducativo",   $datos["NivelEducativo"],   PDO::PARAM_STR);
 		$stmt->bindParam(":Grado",            $datos["Grado"],            PDO::PARAM_STR);
 		$stmt->bindParam(":Grupo",            $datos["Grupo"],            PDO::PARAM_STR);
-		$stmt->bindParam(":Matricula",        $datos["Matricula"],        PDO::PARAM_STR);
+		$stmt->bindParam(":MatriculaInterna", $datos["MatriculaInterna"], PDO::PARAM_STR);
+		$stmt->bindParam(":MatriculaOficial", $datos["MatriculaOficial"], PDO::PARAM_STR);
 		
 		
 
