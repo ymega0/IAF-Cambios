@@ -1,7 +1,6 @@
 <?php
 
 class ControladorClientes{
-	// Prueba de git
 
 	/*=============================================
 	CREAR CLIENTES

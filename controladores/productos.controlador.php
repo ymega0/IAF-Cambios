@@ -8,7 +8,7 @@ class ControladorProductos{
 
 	static public function ctrMostrarProductos($item, $valor, $orden){
 
-		$tabla = "materia";
+		$tabla = "productos";
 
 		$respuesta = ModeloProductos::mdlMostrarProductos($tabla, $item, $valor, $orden);
 
@@ -24,11 +24,14 @@ class ControladorProductos{
 
 		if(isset($_POST["nuevaDescripcion"])){
 
-			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaDescripcion"])){
+			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaDescripcion"]) &&
+			   preg_match('/^[0-9]+$/', $_POST["nuevoStock"]) &&	
+			   preg_match('/^[0-9.]+$/', $_POST["nuevoPrecioCompra"]) &&
+			   preg_match('/^[0-9.]+$/', $_POST["nuevoPrecioVenta"])){
 
 		   		/*=============================================
 				VALIDAR IMAGEN
-				=============================================
+				=============================================*/
 
 			   	$ruta = "vistas/img/productos/default/anonymous.png";
 
@@ -41,7 +44,7 @@ class ControladorProductos{
 
 					/*=============================================
 					CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR LA FOTO DEL USUARIO
-					=============================================
+					=============================================*/
 
 					$directorio = "vistas/img/productos/".$_POST["nuevoCodigo"];
 
@@ -49,13 +52,13 @@ class ControladorProductos{
 
 					/*=============================================
 					DE ACUERDO AL TIPO DE IMAGEN APLICAMOS LAS FUNCIONES POR DEFECTO DE PHP
-					=============================================
+					=============================================*/
 
 					if($_FILES["nuevaImagen"]["type"] == "image/jpeg"){
 
 						/*=============================================
 						GUARDAMOS LA IMAGEN EN EL DIRECTORIO
-						=============================================
+						=============================================*/
 
 						$aleatorio = mt_rand(100,999);
 
@@ -75,7 +78,7 @@ class ControladorProductos{
 
 						/*=============================================
 						GUARDAMOS LA IMAGEN EN EL DIRECTORIO
-						=============================================
+						=============================================*/
 
 						$aleatorio = mt_rand(100,999);
 
@@ -92,12 +95,16 @@ class ControladorProductos{
 					}
 
 				}
-				*/
-				$tabla = "materia";
 
-				$datos = array("id_carrera" => $_POST["nuevaCategoria"],
-							   "grado" => $_POST["nuevoCodigo"],
-							   "materia" => $_POST["nuevaDescripcion"]);
+				$tabla = "productos";
+
+				$datos = array("id_categoria" => $_POST["nuevaCategoria"],
+							   "codigo" => $_POST["nuevoCodigo"],
+							   "descripcion" => $_POST["nuevaDescripcion"],
+							   "stock" => $_POST["nuevoStock"],
+							   "precio_compra" => $_POST["nuevoPrecioCompra"],
+							   "precio_venta" => $_POST["nuevoPrecioVenta"],
+							   "imagen" => $ruta);
 
 				$respuesta = ModeloProductos::mdlIngresarProducto($tabla, $datos);
 

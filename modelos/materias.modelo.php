@@ -2,20 +2,21 @@
 
 require_once "conexion.php";
 
-class ModeloCategorias{
+class ModeloMateria{
 
 	/*=============================================
 	CREAR CATEGORIA
 	=============================================*/
 
-	static public function mdlIngresarCategoria($tabla, $datos){
+	static public function mdlIngresarMateria($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(categoria, codigo, direccion, telefono) VALUES (:id_categoria, :codigo, :direccion, :telefono)");
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(escuela, codigo, carrera, materia, docente) VALUES (:escuela, :codigo, :carrera, :materia, :cordinador)");
 
-		$stmt->bindParam(":id_categoria", $datos["id_categoria"], PDO::PARAM_STR);
+        $stmt->bindParam(":escuela", $datos["escuela"], PDO::PARAM_STR);
+        
+		$stmt->bindParam(":materia", $datos["materia"], PDO::PARAM_STR);
 		$stmt->bindParam(":codigo", $datos["codigo"], PDO::PARAM_STR);
-		$stmt->bindParam(":direccion", $datos["direccion"], PDO::PARAM_STR);
-		$stmt->bindParam(":telefono", $datos["telefono"], PDO::PARAM_STR);
+		$stmt->bindParam(":cordinador", $datos["cordinador"], PDO::PARAM_STR);
 	
 
 		if($stmt->execute()){
@@ -37,7 +38,7 @@ class ModeloCategorias{
 	MOSTRAR CATEGORIAS
 	=============================================*/
 
-	static public function mdlMostrarCategorias($tabla, $item, $valor){
+	static public function mdlMostrarMateria($tabla, $item, $valor){
 
 		if($item != null){
 
@@ -71,12 +72,9 @@ class ModeloCategorias{
 
 	static public function mdlEditarCategoria($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET categoria = :categoria, codigo = :codigo, direccion = :direccion, telefono = :telefono WHERE id = :id");
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET categoria = :categoria WHERE id = :id");
 
 		$stmt -> bindParam(":categoria", $datos["categoria"], PDO::PARAM_STR);
-		$stmt -> bindParam(":codigo", $datos["codigo"], PDO::PARAM_STR);
-		$stmt -> bindParam(":direccion", $datos["direccion"], PDO::PARAM_STR);
-		$stmt -> bindParam(":telefono", $datos["telefono"], PDO::PARAM_STR);
 		$stmt -> bindParam(":id", $datos["id"], PDO::PARAM_INT);
 
 		if($stmt->execute()){

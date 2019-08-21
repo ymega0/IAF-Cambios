@@ -2,20 +2,20 @@
 
 require_once "conexion.php";
 
-class ModeloCategorias{
+class ModeloCarrera{
 
 	/*=============================================
 	CREAR CATEGORIA
 	=============================================*/
 
-	static public function mdlIngresarCategoria($tabla, $datos){
+	static public function mdlIngresarCarrera($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(categoria, codigo, direccion, telefono) VALUES (:id_categoria, :codigo, :direccion, :telefono)");
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(escuela, codigo, carrera,cordinador) VALUES (:escuela, :codigo, :carrera, :cordinador)");
 
-		$stmt->bindParam(":id_categoria", $datos["id_categoria"], PDO::PARAM_STR);
+		$stmt->bindParam(":escuela", $datos["escuela"], PDO::PARAM_STR);
 		$stmt->bindParam(":codigo", $datos["codigo"], PDO::PARAM_STR);
-		$stmt->bindParam(":direccion", $datos["direccion"], PDO::PARAM_STR);
-		$stmt->bindParam(":telefono", $datos["telefono"], PDO::PARAM_STR);
+		$stmt->bindParam(":carrera", $datos["carrera"], PDO::PARAM_STR);
+		$stmt->bindParam(":cordinador", $datos["cordinador"], PDO::PARAM_STR);
 	
 
 		if($stmt->execute()){
@@ -37,11 +37,12 @@ class ModeloCategorias{
 	MOSTRAR CATEGORIAS
 	=============================================*/
 
-	static public function mdlMostrarCategorias($tabla, $item, $valor){
+	static public function mdlMostrarCarrera($tabla, $item, $valor){
 
 		if($item != null){
+			//Este If se ocupa para buscar un resultado predeterminado en labarra de buscador de la tabla
 
-			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item ORDER BY id DESC");
 
 			$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
 
@@ -51,7 +52,7 @@ class ModeloCategorias{
 
 		}else{
 
-			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY $orden DESC");
 
 			$stmt -> execute();
 
@@ -65,19 +66,20 @@ class ModeloCategorias{
 
 	}
 
+
+	}
+
 	/*=============================================
 	EDITAR CATEGORIA
 	=============================================*/
 
-	static public function mdlEditarCategoria($tabla, $datos){
+	static public function mdlEditarCarrera($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET categoria = :categoria, codigo = :codigo, direccion = :direccion, telefono = :telefono WHERE id = :id");
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET carrera = :carrera");
 
-		$stmt -> bindParam(":categoria", $datos["categoria"], PDO::PARAM_STR);
+		$stmt -> bindParam(":carrera", $datos["carrera"], PDO::PARAM_STR);
 		$stmt -> bindParam(":codigo", $datos["codigo"], PDO::PARAM_STR);
-		$stmt -> bindParam(":direccion", $datos["direccion"], PDO::PARAM_STR);
-		$stmt -> bindParam(":telefono", $datos["telefono"], PDO::PARAM_STR);
-		$stmt -> bindParam(":id", $datos["id"], PDO::PARAM_INT);
+		$stmt -> bindParam(":cordinador", $datos["codigo"], PDO::PARAM_STR);
 
 		if($stmt->execute()){
 
