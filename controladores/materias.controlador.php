@@ -18,7 +18,7 @@ class ControladorMateria{
 
 				$datos = array("materia" => $_POST["nuevaMateria"],
 							   "codigo" => $_POST["nuevoCodigo"],
-							   "cordinador" => $_POST["nuevoCordinador"],
+							   "docente" => $_POST["nuevoCordinador"],
 							   "escuela" => $_POST["Escuela"]);
 
 

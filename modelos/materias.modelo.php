@@ -10,13 +10,11 @@ class ModeloMateria{
 
 	static public function mdlIngresarMateria($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(escuela, codigo, carrera, materia, docente) VALUES (:escuela, :codigo, :carrera, :materia, :cordinador)");
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(materia, escuela, docente) VALUES (:materia, :escuela, :docente)");
 
         $stmt->bindParam(":escuela", $datos["escuela"], PDO::PARAM_STR);
-        
-		$stmt->bindParam(":materia", $datos["materia"], PDO::PARAM_STR);
-		$stmt->bindParam(":codigo", $datos["codigo"], PDO::PARAM_STR);
-		$stmt->bindParam(":cordinador", $datos["cordinador"], PDO::PARAM_STR);
+    	$stmt->bindParam(":materia", $datos["materia"], PDO::PARAM_STR);
+		$stmt->bindParam(":docente", $datos["docente"], PDO::PARAM_STR);
 	
 
 		if($stmt->execute()){

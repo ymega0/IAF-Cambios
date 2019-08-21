@@ -191,7 +191,7 @@ MODAL AGREGAR CATEGORÍA
 
               <select class="form-control input-lg" id="Carrera" name="Carrera" required>
                 
-                <option value="">Selecionar Escuela</option>
+                <option value="">Selecionar Carrera</option>
 
                 <?php
 
