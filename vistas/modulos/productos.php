@@ -19,7 +19,7 @@ if($_SESSION["perfil"] == "Vendedor"){
     
     <h1>
       
-      Administrar Materias
+      Administrar Pagos
     
     </h1>
 
@@ -27,7 +27,7 @@ if($_SESSION["perfil"] == "Vendedor"){
       
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
       
-      <li class="active">Administrar Materias</li>
+      <li class="active">Administrar Pagos</li>
     
     </ol>
 
@@ -41,7 +41,7 @@ if($_SESSION["perfil"] == "Vendedor"){
   
         <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarProducto">
           
-          Agregar Materia
+          Agregar Pagos
 
         </button>
 
@@ -58,11 +58,11 @@ if($_SESSION["perfil"] == "Vendedor"){
            <th style="width:10px">#</th>
            <th>Imagen</th>
            <th>Código</th>
-           <th>Descripción</th>
+           <th>Concepto</th>
            <th>Escuela</th>
-           <th>Lugares Disponibles</th>
-           <th>Costo Inscripción</th>
-           <th>Costo Mensualidad</th>
+           <th>Pagos Disponibles</th>
+           <th>Costo Normal</th>
+           <th>Costo IVA</th>
            <th>Agregado</th>
            <th>Acciones</th>
            
@@ -102,7 +102,7 @@ MODAL AGREGAR PRODUCTO
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Agregar Materia</h4>
+          <h4 class="modal-title">Agregar Pagos</h4>
 
         </div>
 
@@ -155,7 +155,7 @@ MODAL AGREGAR PRODUCTO
               
                 <span class="input-group-addon"><i class="fa fa-code"></i></span> 
 
-                <input type="text" class="form-control input-lg" id="nuevoCodigo" name="nuevoCodigo" placeholder="Ingresar código de la Materia" required>
+                <input type="text" class="form-control input-lg" id="nuevoCodigo" name="nuevoCodigo" placeholder="Ingresar código del Pago" required>
 
               </div>
 
@@ -169,7 +169,7 @@ MODAL AGREGAR PRODUCTO
               
                 <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevaDescripcion" placeholder="Ingresar descripción" required>
+                <input type="text" class="form-control input-lg" name="nuevaDescripcion" placeholder="Ingresar Concepto" required>
 
               </div>
 
@@ -183,7 +183,7 @@ MODAL AGREGAR PRODUCTO
               
                 <span class="input-group-addon"><i class="fa fa-check"></i></span> 
 
-                <input type="number" class="form-control input-lg" name="nuevoStock" min="0" placeholder="Lugares Disponibles" required>
+                <input type="number" class="form-control input-lg" name="nuevoStock" min="0" placeholder="Pagos Disponibles" required>
 
               </div>
 
@@ -199,7 +199,7 @@ MODAL AGREGAR PRODUCTO
                   
                     <span class="input-group-addon"><i class="fa fa-arrow-up"></i></span> 
 
-                    <input type="number" class="form-control input-lg" id="nuevoPrecioCompra" name="nuevoPrecioCompra" step="any" min="0" placeholder="Costo de Inscripción" required>
+                    <input type="number" class="form-control input-lg" id="nuevoPrecioCompra" name="nuevoPrecioCompra" step="any" min="0" placeholder="Costo Normal" required>
 
                   </div>
 
@@ -213,7 +213,7 @@ MODAL AGREGAR PRODUCTO
                   
                     <span class="input-group-addon"><i class="fa fa-arrow-down"></i></span> 
 
-                    <input type="number" class="form-control input-lg" id="nuevoPrecioVenta" name="nuevoPrecioVenta" step="any" min="0" placeholder="Costo de Mensualidad" required>
+                    <input type="number" class="form-control input-lg" id="nuevoPrecioVenta" name="nuevoPrecioVenta" step="any" min="0" placeholder="Costo con IVA" required>
 
                   </div>
                 

@@ -20,7 +20,7 @@ if($_SESSION["perfil"] == "Vendedor"){
     
     <h1>
       
-      Administrar Escuela
+      Administrar Carrera
 
 
     
@@ -30,7 +30,7 @@ if($_SESSION["perfil"] == "Vendedor"){
       
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
       
-      <li class="active">Administrar Escuelas</li>
+      <li class="active">Administrar Carrera</li>
     
     </ol>
 
@@ -44,7 +44,7 @@ if($_SESSION["perfil"] == "Vendedor"){
   
         <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarCategoria">
           
-          Agregar Escuela
+          Agregar Carrera
 
         </button>
 
@@ -61,8 +61,8 @@ if($_SESSION["perfil"] == "Vendedor"){
            <th style="width:10px">#</th>
            <th>Escuela</th>
            <th>Codigo</th>
-           <th>Direccion</th>
-           <th>Telefono</th>
+           <th>Carrera</th>
+           <th>Cordinador</th>
            <th>Acciones</th>
 
          </tr> 
@@ -76,7 +76,7 @@ if($_SESSION["perfil"] == "Vendedor"){
           $item = null;
           $valor = null;
 
-          $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
+          $categorias = ControladorCarrera::ctrMostrarCarrera($item, $valor);
 
           foreach ($categorias as $key => $value) {
            
@@ -84,13 +84,13 @@ if($_SESSION["perfil"] == "Vendedor"){
 
                     <td>'.($key+1).'</td>
 
-                    <td class="text-uppercase">'.$value["categoria"].'</td>
+                    <td class="text-uppercase">'.$value["escuela"].'</td>
 
                     <td class="text-uppercase">'.$value["codigo"].'</td>
 
-                    <td class="text-uppercase">'.$value["direccion"].'</td>
+                    <td class="text-uppercase">'.$value["carrera"].'</td>
 
-                    <td class="text-uppercase">'.$value["telefono"].'</td>
+                    <td class="text-uppercase">'.$value["cordinador"].'</td>
 
                     <td>
 
@@ -145,7 +145,7 @@ MODAL AGREGAR CATEGORÍA
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Agregar Escuela</h4>
+          <h4 class="modal-title">Agregar Carrera</h4>
 
         </div>
 
@@ -165,7 +165,7 @@ MODAL AGREGAR CATEGORÍA
               
                 <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevaCategoria" placeholder="Ingresar Nombre de la Escuela" required>
+                <input type="text" class="form-control input-lg" name="nuevaCarrera" placeholder="Ingresar Nombre de la Carrera" required>
 
               </div>
 
@@ -173,7 +173,7 @@ MODAL AGREGAR CATEGORÍA
               
                 <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoCodigo" placeholder="Ingresar Codigo" required>
+                <input type="text" class="form-control input-lg" name="nuevoCodigo" placeholder="Ingresar Codigo de la Carrera" required>
 
               </div>
 
@@ -181,17 +181,36 @@ MODAL AGREGAR CATEGORÍA
               
               <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-              <input type="text" class="form-control input-lg" name="nuevaDireccion" placeholder="Ingresar Dirección" required>
+              <input type="text" class="form-control input-lg" name="nuevoCordinador" placeholder="Ingresar Cordinador" required>
 
             </div>
-
             <div class="input-group">
               
               <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-              <input type="text" class="form-control input-lg" name="nuevotelefono" placeholder="Ingresar Telefono" required>
+              <select class="form-control input-lg" id="nuevaCategoria" name="nuevaCategoria" required>
+                
+                <option value="">Selecionar Escuela</option>
+
+                <?php
+
+                $item = null;
+                $valor = null;
+
+                $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
+
+                foreach ($categorias as $key => $value) {
+                  
+                  echo '<option value="'.$value["categoria"].'">'.$value["categoria"].'</option>';
+                }
+
+                ?>
+
+              </select>
 
             </div>
+
+         
 
             </div>
   
@@ -207,14 +226,14 @@ MODAL AGREGAR CATEGORÍA
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="submit" class="btn btn-primary">Guardar Escuela</button>
+          <button type="submit" class="btn btn-primary">Guardar Carrera</button>
 
         </div>
 
         <?php
 
-          $crearCategoria = new ControladorCategorias();
-          $crearCategoria -> ctrCrearCategoria();
+          $crearCarrera = new ControladorCarrera();
+          $crearCarrera -> ctrCrearCarrera();
 
         ?>
 
