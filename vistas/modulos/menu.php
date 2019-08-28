@@ -49,7 +49,7 @@
 			echo '<li>
 				<a href="clientes">
 					<i class="fa fa-users"></i>
-					<span>Alumnos</span>
+					<span>Inscripción de Alumno</span>
 				</a>
 			</li>';
 		}

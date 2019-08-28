@@ -165,25 +165,58 @@ MODAL AGREGAR CATEGORÍA
               
                 <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevaCategoria" placeholder="Ingresar Nombre de la Escuela" required>
+                <input type="text" class="form-control input-lg" name="nuevaCategoria" placeholder="Nombre Oficial según catalogo de Centros de Trabajo" required>
 
               </div>
-
+                <br>
               <div class="input-group">
               
                 <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoCodigo" placeholder="Ingresar Codigo" required>
+                <input type="text" class="form-control input-lg" name="nuevoCodigo" placeholder="Ingresar C. T." required>
 
               </div>
+              <br>
 
               <div class="input-group">
               
               <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-              <input type="text" class="form-control input-lg" name="nuevaDireccion" placeholder="Ingresar Dirección" required>
+              <input type="text" class="form-control input-lg" name="nuevoCodigo" placeholder="Ingresar Zona de Trabajo" required>
 
             </div>
+
+            <br>
+
+              <div class="input-group">
+              
+              <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+              <input type="text" class="form-control input-lg" name="nuevaDireccion" placeholder="Ingresar Domicilio de la Escuela" required>
+
+            </div>
+
+            <br>
+
+            <div class="input-group">
+              
+              <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+              <input type="text" class="form-control input-lg" name="nuevaDireccion" placeholder="Ingresar Localidad" required>
+
+            </div>
+
+            <br>
+
+            <div class="input-group">
+              
+              <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+              <input type="text" class="form-control input-lg" name="nuevotelefono" placeholder="Ingresar Municipio" required>
+
+            </div>
+
+            <br>
 
             <div class="input-group">
               
@@ -192,6 +225,8 @@ MODAL AGREGAR CATEGORÍA
               <input type="text" class="form-control input-lg" name="nuevotelefono" placeholder="Ingresar Telefono" required>
 
             </div>
+
+            <br>
 
             </div>
   

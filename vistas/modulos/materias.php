@@ -158,33 +158,8 @@ MODAL AGREGAR CATEGORÍA
           <div class="box-body">
 
             <!-- ENTRADA PARA EL NOMBRE -->
+
             
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevaMateria" placeholder="Ingresar Codigo de la Materia" required>
-
-              </div>
-
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoCodigo" placeholder="Ingresar el nombre de la Materia" required>
-
-              </div>
-
-              <div class="input-group">
-              
-              <span class="input-group-addon"><i class="fa fa-th"></i></span> 
-
-              <input type="text" class="form-control input-lg" name="nuevoCordinador" placeholder="Ingresar Cordinador" required>
-
-            </div>
-
             <div class="input-group">
               
               <span class="input-group-addon"><i class="fa fa-th"></i></span> 
@@ -210,6 +185,8 @@ MODAL AGREGAR CATEGORÍA
               </select>
 
             </div>
+            <br>
+
             <div class="input-group">
               
               <span class="input-group-addon"><i class="fa fa-th"></i></span> 
@@ -233,10 +210,68 @@ MODAL AGREGAR CATEGORÍA
                 ?>
 
               </select>
+        
+            </div>
+              <br>            
+            <div class="form-group">
+              
+              <div class="input-group">
+             
+              
+                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="nuevaMateria" placeholder="Ingresar Codigo de la Materia" required>
+                
+              </div>
+             <br>
+             
+
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="nuevoCodigo" placeholder="Ingresar el nombre de la Materia" required>
+
+              </div>
+              <br>
+              <div class="input-group">
+              
+              <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+              <input type="text" class="form-control input-lg" name="nuevoCordinador" placeholder="Ingresar Docente" required>
+
+            </div>
+              <br>
+
+            <div class="input-group">
+              
+              <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+              <input type="text" class="form-control input-lg" name="nuevoCordinador" placeholder="Ingresar Semestre" required>
 
             </div>
 
-         
+            <br>
+
+            <div class="input-group">
+              
+              <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+              <input type="text" class="form-control input-lg" name="nuevoCordinador" placeholder="Ingresar Grado" required>
+
+            </div>
+
+            <br>
+
+            <div class="input-group">
+              
+              <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+              <input type="text" class="form-control input-lg" name="nuevoCordinador" placeholder="Ingresar Grupo" required>
+
+            </div>
+            <br>
+
 
             </div>
   
