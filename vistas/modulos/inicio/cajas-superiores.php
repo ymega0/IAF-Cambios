@@ -27,7 +27,7 @@ $totalProductos = count($productos);
       
       <h3>$<?php echo number_format($ventas["total"],2); ?></h3>
 
-      <p>Ventas</p>
+      <p>INGRESOS</p>
     
     </div>
     
@@ -55,7 +55,7 @@ $totalProductos = count($productos);
     
       <h3><?php echo number_format($totalCategorias); ?></h3>
 
-      <p>Categorías</p>
+      <p>CARRERAS</p>
     
     </div>
     
@@ -83,7 +83,7 @@ $totalProductos = count($productos);
     
       <h3><?php echo number_format($totalClientes); ?></h3>
 
-      <p>Clientes</p>
+      <p>ESTUDIANTES</p>
   
     </div>
     
@@ -111,13 +111,13 @@ $totalProductos = count($productos);
     
       <h3><?php echo number_format($totalProductos); ?></h3>
 
-      <p>Productos</p>
+      <p>MATERIAS</p>
     
     </div>
     
     <div class="icon">
       
-      <i class="ion ion-ios-cart"></i>
+      <i class="ion ion-clipboard"></i>
     
     </div>
     

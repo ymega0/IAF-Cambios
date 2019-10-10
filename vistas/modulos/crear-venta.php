@@ -149,6 +149,7 @@ if($_SESSION["perfil"] == "Especial"){
 
                     </select>
                     
+                    <span class="input-group-addon"><button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#modalAgregarCliente" data-dismiss="modal">Agregar cliente</button></span>
                   
                   </div>
                 
@@ -241,7 +242,7 @@ if($_SESSION["perfil"] == "Especial"){
                 <hr>
 
                 <!--=====================================
-                ENTRADA MÉTODO DE PAGO
+                ENTRADA MÉTODO DE PAGO            
                 ======================================-->
 
                 <div class="form-group row">
@@ -254,7 +255,7 @@ if($_SESSION["perfil"] == "Especial"){
                         <option value="">Seleccione método de pago</option>
                         <option value="Efectivo">Efectivo</option>
                         <option value="TC">Tarjeta Crédito</option>
-                        <option value="TD">Tarjeta Débito</option>                  
+                        <option value="TD">Tarjeta Débito</option>            
                       </select>    
 
                     </div>
@@ -337,7 +338,7 @@ if($_SESSION["perfil"] == "Especial"){
 
 <!--=====================================
 MODAL AGREGAR CLIENTE
-======================================--
+======================================-->
 
 <div id="modalAgregarCliente" class="modal fade" role="dialog">
   
@@ -349,7 +350,7 @@ MODAL AGREGAR CLIENTE
 
         <!--=====================================
         CABEZA DEL MODAL
-        ======================================--
+        ======================================-->
 
         <div class="modal-header" style="background:#3c8dbc; color:white">
 
@@ -361,13 +362,13 @@ MODAL AGREGAR CLIENTE
 
         <!--=====================================
         CUERPO DEL MODAL
-        ======================================--
+        ======================================-->
 
         <div class="modal-body">
 
           <div class="box-body">
 
-            <!-- ENTRADA PARA EL NOMBRE --
+            <!-- ENTRADA PARA EL NOMBRE -->
             
             <div class="form-group">
               
@@ -381,7 +382,7 @@ MODAL AGREGAR CLIENTE
 
             </div>
 
-            <!-- ENTRADA PARA EL DOCUMENTO ID --
+            <!-- ENTRADA PARA EL DOCUMENTO ID -->
             
             <div class="form-group">
               
@@ -395,7 +396,7 @@ MODAL AGREGAR CLIENTE
 
             </div>
 
-            <!-- ENTRADA PARA EL EMAIL --
+            <!-- ENTRADA PARA EL EMAIL -->
             
             <div class="form-group">
               
@@ -409,7 +410,7 @@ MODAL AGREGAR CLIENTE
 
             </div>
 
-            <!-- ENTRADA PARA EL TELÉFONO --
+            <!-- ENTRADA PARA EL TELÉFONO -->
             
             <div class="form-group">
               
@@ -423,7 +424,7 @@ MODAL AGREGAR CLIENTE
 
             </div>
 
-            <!-- ENTRADA PARA LA DIRECCIÓN --
+            <!-- ENTRADA PARA LA DIRECCIÓN -->
             
             <div class="form-group">
               
@@ -437,7 +438,7 @@ MODAL AGREGAR CLIENTE
 
             </div>
 
-             <!-- ENTRADA PARA LA FECHA DE NACIMIENTO --
+             <!-- ENTRADA PARA LA FECHA DE NACIMIENTO -->
             
             <div class="form-group">
               
@@ -481,3 +482,4 @@ MODAL AGREGAR CLIENTE
   </div>
 
 </div>
+ 

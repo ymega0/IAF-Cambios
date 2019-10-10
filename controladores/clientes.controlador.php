@@ -1,15 +1,10 @@
 <?php
-
 class ControladorClientes{
-
 	/*=============================================
 	CREAR CLIENTES
 	=============================================*/
-
 	static public function ctrCrearCliente(){
-
 		if(isset($_POST["nuevoCliente"])){
-
 			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',                                                                 $_POST["nuevoCliente"]) &&
 			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',                                                                 $_POST["nuevoapellido_paterno"]) &&
 			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',                                                                 $_POST["nuevoapellido_materno"]) &&
@@ -30,9 +25,7 @@ class ControladorClientes{
 			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',                                                                 $_POST["nuevoGrupo"]) &&
 			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',                                                                 $_POST["nuevoMatriculaInterna"]) &&
 			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',                                                                 $_POST["nuevoMatriculaOficial"])){
-
 			   	$tabla = "clientes";
-
 				   $datos = array("nombre"=>          $_POST["nuevoCliente"],
 								  "apellido_paterno"=>$_POST["nuevoapellido_paterno"],
 								  "apellido_materno"=>$_POST["nuevoapellido_materno"],
@@ -54,13 +47,9 @@ class ControladorClientes{
 								  "Grupo"=>           $_POST["nuevoGrupo"],
 								  "MatriculaInterna"=>$_POST["nuevoMatriculaInterna"],
 								  "MatriculaOficial"=>$_POST["nuevoMatriculaOficial"]);
-
 			   	$respuesta = ModeloClientes::mdlIngresarCliente($tabla, $datos);
-
 			   	if($respuesta == "ok"){
-
 					echo'<script>
-
 					swal({
 						  type: "success",
 						  title: "El Estudiante ha sido guardado correctamente",
@@ -68,20 +57,13 @@ class ControladorClientes{
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
 									if (result.value) {
-
 									window.location = "clientes";
-
 									}
 								})
-
 					</script>';
-
 				}
-
 			}else{
-
 				echo'<script>
-
 					swal({
 						  type: "error",
 						  title: "¡El Estudiante no puede ir vacío o llevar caracteres especiales!",
@@ -89,44 +71,26 @@ class ControladorClientes{
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
 							if (result.value) {
-
 							window.location = "clientes";
-
 							}
 						})
-
 			  	</script>';
-
-
-
 			}
-
 		}
-
 	}
-
 	/*=============================================
 	MOSTRAR CLIENTES
 	=============================================*/
-
 	static public function ctrMostrarClientes($item, $valor){
-
 		$tabla = "clientes";
-
 		$respuesta = ModeloClientes::mdlMostrarClientes($tabla, $item, $valor);
-
 		return $respuesta;
-
 	}
-
 	/*=============================================
 	EDITAR CLIENTE
 	=============================================*/
-
 	static public function ctrEditarCliente(){
-
 		if(isset($_POST["editarCliente"])){
-
 			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',                                                                 $_POST["editarCliente"]) &&
 			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',                                                                 $_POST["editarapellido_paterno"]) &&
 			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',                                                                 $_POST["editarapellido_materno"]) &&
@@ -147,9 +111,7 @@ class ControladorClientes{
 			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',                                                                 $_POST["editarGrupo"]) &&
 			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',                                                                 $_POST["editarMatriculaInterna"]) &&
 			   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/',                                                                 $_POST["editarMatriculaOficial"])){
-
 			   	$tabla = "clientes";
-
 			   	$datos = array(   "id"=>              $_POST["idCliente"],
 								  "nombre"=>          $_POST["editarCliente"],
 								  "apellido_paterno"=>$_POST["editarapellido_paterno"],
@@ -172,13 +134,9 @@ class ControladorClientes{
 								  "Grupo"=>           $_POST["editarGrupo"],
 								  "MatriculaInterna"=>$_POST["editarMatriculaInterna"],
 								  "MatriculaOficial"=>$_POST["editarMatriculaOficial"]);
-
 			   	$respuesta = ModeloClientes::mdlEditarCliente($tabla, $datos);
-
 			   	if($respuesta == "ok"){
-
 					echo'<script>
-
 					swal({
 						  type: "success",
 						  title: "El Estudiante ha sido cambiado correctamente",
@@ -186,20 +144,13 @@ class ControladorClientes{
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
 									if (result.value) {
-
 									window.location = "clientes";
-
 									}
 								})
-
 					</script>';
-
 				}
-
 			}else{
-
 				echo'<script>
-
 					swal({
 						  type: "error",
 						  title: "¡El Estudiante no puede ir vacío o llevar caracteres especiales!",
@@ -207,39 +158,23 @@ class ControladorClientes{
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
 							if (result.value) {
-
 							window.location = "clientes";
-
 							}
 						})
-
 			  	</script>';
-
-
-
 			}
-
 		}
-
 	}
-
 	/*=============================================
 	ELIMINAR CLIENTE
 	=============================================*/
-
 	static public function ctrEliminarCliente(){
-
 		if(isset($_GET["idCliente"])){
-
 			$tabla ="clientes";
 			$datos = $_GET["idCliente"];
-
 			$respuesta = ModeloClientes::mdlEliminarCliente($tabla, $datos);
-
 			if($respuesta == "ok"){
-
 				echo'<script>
-
 				swal({
 					  type: "success",
 					  title: "El Estudiante ha sido borrado correctamente",
@@ -248,19 +183,11 @@ class ControladorClientes{
 					  closeOnConfirm: false
 					  }).then(function(result){
 								if (result.value) {
-
 								window.location = "clientes";
-
 								}
 							})
-
 				</script>';
-
 			}		
-
 		}
-
 	}
-
 }
-

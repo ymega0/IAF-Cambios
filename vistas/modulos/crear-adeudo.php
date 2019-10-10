@@ -1,10 +1,26 @@
+<?php
+
+if($_SESSION["perfil"] == "Especial"){
+
+  echo '<script>
+
+    window.location = "inicio";
+
+  </script>';
+
+  return;
+
+}
+
+?>
+
 <div class="content-wrapper">
 
   <section class="content-header">
     
     <h1>
       
-      Crear venta
+      Crear Aduedo
     
     </h1>
 
@@ -12,7 +28,7 @@
       
       <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
       
-      <li class="active">Crear venta</li>
+      <li class="active">Crear Adeudo</li>
     
     </ol>
 
@@ -32,7 +48,7 @@
           
           <div class="box-header with-border"></div>
 
-          <form role="form" metohd="post">
+          <form role="form" method="post" class="formularioVenta">
 
             <div class="box-body">
   
@@ -48,14 +64,16 @@
                     
                     <span class="input-group-addon"><i class="fa fa-user"></i></span> 
 
-                    <input type="text" class="form-control" id="nuevoVendedor" name="nuevoVendedor" value="Usuario Administrador" readonly>
+                    <input type="text" class="form-control" id="nuevoVendedor" value="<?php echo $_SESSION["nombre"]; ?>" readonly>
+
+                    <input type="hidden" name="idVendedor" value="<?php echo $_SESSION["id"]; ?>">
 
                   </div>
 
                 </div> 
 
                 <!--=====================================
-                ENTRADA DEL VENDEDOR
+                ENTRADA DEL CÓDIGO
                 ======================================--> 
 
                 <div class="form-group">
@@ -63,9 +81,39 @@
                   <div class="input-group">
                     
                     <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                    
-                    <input type="text" class="form-control" id="nuevaVenta" name="nuevaVenta" value="10002343" readonly>
+
+                    <?php
+
+                    $item = null;
+                    $valor = null;
+
+                    $ventas = ControladorVentas::ctrMostrarVentas($item, $valor);
+
+                    if(!$ventas){
+
+                      echo '<input type="text" class="form-control" id="nuevaVenta" name="nuevaVenta" value="10001" readonly>';
                   
+
+                    }else{
+
+                      foreach ($ventas as $key => $value) {
+                        
+                        
+                      
+                      }
+
+                      $codigo = $value["codigo"] + 1;
+
+
+
+                      echo '<input type="text" class="form-control" id="nuevaVenta" name="nuevaVenta" value="'.$codigo.'" readonly>';
+                  
+
+                    }
+
+                    ?>
+                    
+                    
                   </div>
                 
                 </div>
@@ -82,7 +130,22 @@
                     
                     <select class="form-control" id="seleccionarCliente" name="seleccionarCliente" required>
 
-                    <option value="">Seleccionar cliente</option>
+                    <option value="">Seleccionar Alumno</option>
+
+                    <?php
+
+                      $item = null;
+                      $valor = null;
+
+                      $categorias = ControladorClientes::ctrMostrarClientes($item, $valor);
+
+                       foreach ($categorias as $key => $value) {
+
+                         echo '<option value="'.$value["id"].'">'.$value["nombre"].'</option>';
+
+                       }
+
+                    ?>
 
                     </select>
                     
@@ -98,49 +161,17 @@
 
                 <div class="form-group row nuevoProducto">
 
-                  <!-- Descripción del producto -->
-                  
-                  <div class="col-xs-6" style="padding-right:0px">
-                  
-                    <div class="input-group">
-                      
-                      <span class="input-group-addon"><button type="button" class="btn btn-danger btn-xs"><i class="fa fa-times"></i></button></span>
-
-                      <input type="text" class="form-control" id="agregarProducto" name="agregarProducto" placeholder="Descripción del producto" required>
-
-                    </div>
-
-                  </div>
-
-                  <!-- Cantidad del producto -->
-
-                  <div class="col-xs-3">
-                    
-                     <input type="number" class="form-control" id="nuevaCantidadProducto" name="nuevaCantidadProducto" min="1" placeholder="0" required>
-
-                  </div> 
-
-                  <!-- Precio del producto -->
-
-                  <div class="col-xs-3" style="padding-left:0px">
-
-                    <div class="input-group">
-
-                      <span class="input-group-addon"><i class="ion ion-social-usd"></i></span>
-                         
-                      <input type="number" min="1" class="form-control" id="nuevoPrecioProducto" name="nuevoPrecioProducto" placeholder="000000" readonly required>
-         
-                    </div>
-                     
-                  </div> 
+                
 
                 </div>
+
+                <input type="hidden" id="listaProductos" name="listaProductos">
 
                 <!--=====================================
                 BOTÓN PARA AGREGAR PRODUCTO
                 ======================================-->
 
-                <button type="button" class="btn btn-default hidden-lg">Agregar producto</button>
+                <button type="button" class="btn btn-default hidden-lg btnAgregarProducto">Agregar Adeudo</button>
 
                 <hr>
 
@@ -171,7 +202,12 @@
                             
                             <div class="input-group">
                            
-                              <input type="number" class="form-control" min="0" id="nuevoImpuestoVenta" name="nuevoImpuestoVenta" placeholder="0" required>
+                              <input type="number" class="form-control input-lg" min="0" id="nuevoImpuestoVenta" name="nuevoImpuestoVenta" placeholder="0" required>
+
+                               <input type="hidden" name="nuevoPrecioImpuesto" id="nuevoPrecioImpuesto" required>
+
+                               <input type="hidden" name="nuevoPrecioNeto" id="nuevoPrecioNeto" required>
+
                               <span class="input-group-addon"><i class="fa fa-percent"></i></span>
                         
                             </div>
@@ -184,7 +220,9 @@
                            
                               <span class="input-group-addon"><i class="ion ion-social-usd"></i></span>
 
-                              <input type="number" min="1" class="form-control" id="nuevoTotalVenta" name="nuevoTotalVenta" placeholder="00000" readonly required>
+                              <input type="text" class="form-control input-lg" id="nuevoTotalVenta" name="nuevoTotalVenta" total="" placeholder="00000" readonly required>
+
+                              <input type="hidden" name="totalVenta" id="totalVenta">
                               
                         
                             </div>
@@ -192,8 +230,6 @@
                           </td>
 
                         </tr>
-
-
 
                       </tbody>
 
@@ -206,7 +242,7 @@
                 <hr>
 
                 <!--=====================================
-                ENTRADA MÉTODO DE PAGO
+                ENTRADA MÉTODO DE PAGO            
                 ======================================-->
 
                 <div class="form-group row">
@@ -217,26 +253,18 @@
                   
                       <select class="form-control" id="nuevoMetodoPago" name="nuevoMetodoPago" required>
                         <option value="">Seleccione método de pago</option>
-                        <option value="efectivo">Efectivo</option>
-                        <option value="tarjetaCredito">Tarjeta Crédito</option>
-                        <option value="tarjetaDebito">Tarjeta Débito</option>                  
+                        <option value="Efectivo">Efectivo</option>
+                        <option value="TC">Tarjeta Crédito</option>
+                        <option value="TD">Tarjeta Débito</option>            
                       </select>    
 
                     </div>
 
                   </div>
 
-                  <div class="col-xs-6" style="padding-left:0px">
-                        
-                    <div class="input-group">
-                         
-                      <input type="text" class="form-control" id="nuevoCodigoTransaccion" name="nuevoCodigoTransaccion" placeholder="Código transacción"  required>
-                           
-                      <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                      
-                    </div>
+                  <div class="cajasMetodoPago"></div>
 
-                  </div>
+                  <input type="hidden" id="listaMetodoPago" name="listaMetodoPago">
 
                 </div>
 
@@ -248,11 +276,19 @@
 
           <div class="box-footer">
 
-            <button type="submit" class="btn btn-primary pull-right">Guardar venta</button>
+            <button type="submit" class="btn btn-primary pull-right">Guardar Pago
+  </button>
 
           </div>
 
         </form>
+
+        <?php
+
+          $guardarVenta = new ControladorVentas();
+          $guardarVenta -> ctrCrearVenta();
+          
+        ?>
 
         </div>
             
@@ -270,7 +306,7 @@
 
           <div class="box-body">
             
-            <table class="table table-bordered table-striped dt-responsive tablas">
+            <table class="table table-bordered table-striped dt-responsive tablaVentas">
               
                <thead>
 
@@ -279,28 +315,11 @@
                   <th>Imagen</th>
                   <th>Código</th>
                   <th>Descripcion</th>
-                  <th>Stock</th>
+                  <th>Disponibles</th>
                   <th>Acciones</th>
                 </tr>
 
               </thead>
-
-              <tbody>
-
-                <tr>
-                  <td>1.</td>                 
-                  <td><img src="vistas/img/productos/default/anonymous.png" class="img-thumbnail" width="40px"></td>
-                  <td>00123</td>
-                  <td>Lorem ipsum dolor sit amet</td>       
-                  <td>20</td>                 
-                  <td>                 
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-primary">Agregar</button> 
-                    </div>
-                  </td>
-                </tr>
-
-              </tbody>
 
             </table>
 
@@ -463,3 +482,4 @@ MODAL AGREGAR CLIENTE
   </div>
 
 </div>
+ 
