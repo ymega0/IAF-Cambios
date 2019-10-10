@@ -1,28 +1,28 @@
 <?php
 
-class ControladorCategorias{
+class ControladorCarrera{
 
 	/*=============================================
 	CREAR CATEGORIAS
 	=============================================*/
 
-	static public function ctrCrearCategoria(){
+	static public function ctrCrearCarrera(){
 
-		if(isset($_POST["nuevaCategoria"])){
+		if(isset($_POST["nuevaCarrera"])){
 
-			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaCategoria"])){
+			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaCarrera"])){
 
-				$tabla = "categorias";
+				$tabla = "carrera";
 
 				
 
-				$datos = array("id_categoria" => $_POST["nuevaCategoria"],
+				$datos = array("carrera" => $_POST["nuevaCarrera"],
 							   "codigo" => $_POST["nuevoCodigo"],
-							   "direccion" => $_POST["nuevaDireccion"],
-							   "telefono" => $_POST["nuevotelefono"]);
+							   "cordinador" => $_POST["nuevoCordinador"],
+							   "escuela" => $_POST["nuevaCategoria"]);
 
 
-				$respuesta = ModeloCategorias::mdlIngresarCategoria($tabla, $datos);
+				$respuesta = ModeloCarrera::mdlIngresarCarrera($tabla, $datos);
 
 				if($respuesta == "ok"){
 
@@ -30,13 +30,13 @@ class ControladorCategorias{
 
 					swal({
 						  type: "success",
-						  title: "La Escuela ha sido guardada correctamente",
+						  title: "La Carrera ha sido guardada correctamente",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
 									if (result.value) {
 
-									window.location = "categorias";
+									window.location = "carrera";
 
 									}
 								})
@@ -52,13 +52,13 @@ class ControladorCategorias{
 
 					swal({
 						  type: "error",
-						  title: "¡El nombre de la Escuela no puede ir vacía o llevar caracteres especiales!",
+						  title: "¡El nombre de la Carrera no puede ir vacía o llevar caracteres especiales!",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
 							if (result.value) {
 
-							window.location = "categorias";
+							window.location = "carrera";
 
 							}
 						})
@@ -75,11 +75,11 @@ class ControladorCategorias{
 	MOSTRAR CATEGORIAS
 	=============================================*/
 
-	static public function ctrMostrarCategorias($item, $valor){
+	static public function ctrMostrarCarrera($item, $valor){
 
-		$tabla = "categorias";
+		$tabla = "carrera";
 
-		$respuesta = ModeloCategorias::mdlMostrarCategorias($tabla, $item, $valor);
+		$respuesta = ModeloCarrera::mdlMostrarCarrera($tabla, $item, $valor);
 
 		return $respuesta;
 	
@@ -108,13 +108,13 @@ class ControladorCategorias{
 
 					swal({
 						  type: "success",
-						  title: "La Escuela ha sido cambiada correctamente",
+						  title: "La Carrera ha sido cambiada correctamente",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
 									if (result.value) {
 
-									window.location = "categorias";
+									window.location = "carrera";
 
 									}
 								})
@@ -130,13 +130,13 @@ class ControladorCategorias{
 
 					swal({
 						  type: "error",
-						  title: "¡La Escuela no puede ir vacía o llevar caracteres especiales!",
+						  title: "¡La Carrera no puede ir vacía o llevar caracteres especiales!",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
 							if (result.value) {
 
-							window.location = "categorias";
+							window.location = "carrera";
 
 							}
 						})
