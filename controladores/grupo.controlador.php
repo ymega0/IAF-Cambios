@@ -18,12 +18,7 @@ class ControladorCategorias{
 
 				$datos = array("id_categoria" => $_POST["nuevaCategoria"],
 							   "codigo" => $_POST["nuevoCodigo"],
-							   "cuenta" => $_POST["nuevaCuenta"],
 							   "direccion" => $_POST["nuevaDireccion"],
-							   "ZT" => $_POST["ZT"],
-							   "Localidad" => $_POST["nuevaDireccion"],
-							   "Municipio" => $_POST["Municipio"],
-							   "Encargado" => $_POST["Encargado"],
 							   "telefono" => $_POST["nuevotelefono"]);
 
 

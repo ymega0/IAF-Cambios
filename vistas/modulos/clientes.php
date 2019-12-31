@@ -72,6 +72,8 @@ if($_SESSION["perfil"] == "Especial"){
            <th>Grupo</th>
            <th>MatriculaInterna</th>
            <th>MatriculaOficial</th>
+           <th>Escuela</th>
+           <th>Modalidad</th>
            <th>Ingreso al sistema</th>
            <th>Acciones</th>
 
@@ -111,6 +113,8 @@ if($_SESSION["perfil"] == "Especial"){
                     <td>'.$value["Grupo"].'</td>
                     <td>'.$value["MatriculaInterna"].'</td>
                     <td>'.$value["MatriculaOficial"].'</td>
+                    <td>'.$value["Escuela"].'</td>
+                    <td>'.$value["Modalidad"].'</td>
                     <td>'.$value["fecha"].'</td>
                     <td>
                       <div class="btn-group">
@@ -354,17 +358,25 @@ MODAL AGREGAR CLIENTE
 
             <!-- ENTRADA PARA Genero -->
             
-            <div class="form-group">
+            <div class="input-group">
               
-              <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+              <select class="form-control input-lg" id="nuevoGenero" name="nuevoGenero" required>
+                
+                <option value="">Seleccionar Genero</option>
+
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
               
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoGenero" placeholder="Ingresar Genero" required>
+                
 
-              </div>
+              </select>
+
 
             </div>
+            <br>
 
             <!-- ENTRADA PARA EL EMAIL -->
             
@@ -463,6 +475,61 @@ MODAL AGREGAR CLIENTE
               </div>
 
             </div>
+
+              <div class="input-group">
+              
+              <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+              <select class="form-control input-lg" id="Escuela" name="Escuela" required>
+                
+                <option value="">Selecionar Escuela</option>
+
+                <?php
+
+                $item = null;
+                $valor = null;
+
+                $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
+
+                foreach ($categorias as $key => $value) {
+                  
+                  echo '<option value="'.$value["categoria"].'">'.$value["categoria"].'</option>';
+                }
+
+                ?>
+
+              </select>
+
+            </div>
+              <br>
+
+              <div class="input-group">
+              
+              <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+              <select class="form-control input-lg" id="Modalidad" name="Modalidad" required>
+                
+                <option value="">Selecionar Modalidad</option>
+
+                <?php
+
+                $item = null;
+                $valor = null;
+
+                $categorias = ControladorCarrera::ctrMostrarCarrera($item, $valor);
+
+                foreach ($categorias as $key => $value) {
+                  
+                  echo '<option value="'.$value["carrera"].'">'.$value["carrera"].'</option>';
+                }
+
+                ?>
+
+              </select>
+
+            </div>
+
+            
 
             
 

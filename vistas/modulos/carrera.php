@@ -20,7 +20,7 @@ if($_SESSION["perfil"] == "Vendedor"){
     
     <h1>
       
-      Administrar Carrera
+      Administrar Modalidad
 
 
     
@@ -30,7 +30,7 @@ if($_SESSION["perfil"] == "Vendedor"){
       
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
       
-      <li class="active">Administrar Carrera</li>
+      <li class="active">Administrar Modalidad</li>
     
     </ol>
 
@@ -44,7 +44,7 @@ if($_SESSION["perfil"] == "Vendedor"){
   
         <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarCategoria">
           
-          Agregar Carrera
+          Agregar Modalidad
 
         </button>
 
@@ -61,8 +61,12 @@ if($_SESSION["perfil"] == "Vendedor"){
            <th style="width:10px">#</th>
            <th>Escuela</th>
            <th>Codigo</th>
-           <th>Carrera</th>
+           <th>Modalidad</th>
+           <th>Meses de Duración</th>
+           <th>Turno</th>
+           <th>Tipo Plan</th>
            <th>Cordinador</th>
+           <th>Fecha de Ingreso</th>
            <th>Acciones</th>
 
          </tr> 
@@ -89,6 +93,19 @@ if($_SESSION["perfil"] == "Vendedor"){
                     <td class="text-uppercase">'.$value["codigo"].'</td>
 
                     <td class="text-uppercase">'.$value["carrera"].'</td>
+
+                    <td class="text-uppercase">'.$value["Meses"].'</td>
+
+                    <td class="text-uppercase">'.$value["Turno"].'</td>
+
+                    <td class="text-uppercase">'.$value["planestudio"].'</td>
+                    <td class="text-uppercase">'.$value["fecha"].'</td>
+
+                    <td> </td>
+                    <td> </td>
+                    <td> </td>
+                    <td> </td>
+                    <td> </td>
 
                     <td class="text-uppercase">'.$value["cordinador"].'</td>
 
@@ -145,7 +162,7 @@ MODAL AGREGAR CATEGORÍA
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Agregar Carrera</h4>
+          <h4 class="modal-title">Agregar  Modalidad</h4>
 
         </div>
 
@@ -165,30 +182,24 @@ MODAL AGREGAR CATEGORÍA
               
                 <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevaCarrera" placeholder="Ingresar Nombre de la Carrera" required>
+                <input type="text" class="form-control input-lg" name="codigoModalidad" placeholder="Ingresar código de la modalidad" required>
 
               </div>
-
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoCodigo" placeholder="Ingresar Codigo de la Carrera" required>
-
-              </div>
-
+              <br>
               <div class="input-group">
               
               <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-              <input type="text" class="form-control input-lg" name="nuevoCordinador" placeholder="Ingresar Cordinador" required>
+              <input type="text" class="form-control input-lg" name="NombreModalidad" placeholder="Ingresar nombre de la modalidad" required>
 
             </div>
-            <div class="input-group">
+            
+          <br>
+              <div class="input-group">
               
               <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-              <select class="form-control input-lg" id="nuevaCategoria" name="nuevaCategoria" required>
+              <select class="form-control input-lg" id="Escuela" name="Escuela" required>
                 
                 <option value="">Selecionar Escuela</option>
 
@@ -209,7 +220,51 @@ MODAL AGREGAR CATEGORÍA
               </select>
 
             </div>
+              <br>
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
+                <input type="text" class="form-control input-lg" name="Meses" placeholder="Meses de duración de la modalidad" required>
+
+              </div>
+<br>
+              <div class="input-group">
+              
+              <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+              <select class="form-control input-lg" id="turno" name="turno" required>
+                
+                <option value="">Seleccionar turno</option>
+
+                <option value="Matutino">Matutino</option>
+                <option value="Vespertino">Vespertino</option>
+              
+
+                
+
+              </select>
+
+
+            </div>
+      
+            <br>
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="planestudios" placeholder="Tipo de plan a manejar" required>
+
+              </div>
+
+              <br>
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="cordinador" placeholder="Nombre del Coordinador" required>
+
+              </div>
          
 
             </div>
@@ -226,7 +281,7 @@ MODAL AGREGAR CATEGORÍA
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="submit" class="btn btn-primary">Guardar Carrera</button>
+          <button type="submit" class="btn btn-primary">Guardar Modalidad</button>
 
         </div>
 

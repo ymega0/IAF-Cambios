@@ -60,6 +60,7 @@ if($_SESSION["perfil"] == "Vendedor"){
            <th>Código</th>
            <th>Concepto</th>
            <th>Escuela</th>
+           <th>Grupo</th>
            <th>Pagos Disponibles</th>
            <th>Costo Normal</th>
            <th>Costo IVA</th>
@@ -146,6 +147,26 @@ MODAL AGREGAR PRODUCTO
               </div>
 
             </div>
+            <div class="input-group">
+              
+            <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                <select class="form-control input-lg" id="grupo" name="grupo" required>
+  
+  <option value="">Seleccionar Grupo de Cuenta</option>
+
+  <option value="Grupo A">Grupo A</option>
+  <option value="Grupo B">Grupo B</option>
+
+                
+
+              </select>
+
+
+            </div>
+            <br>
+
+
 
             <!-- ENTRADA PARA EL CÓDIGO -->
             

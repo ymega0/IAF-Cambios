@@ -27,7 +27,19 @@ $totalProductos = count($productos);
       
       <h3>$<?php echo number_format($ventas["total"],2); ?></h3>
 
-      <p>INGRESOS</p>
+      <p>COBRANZA</p>
+    
+    </div>
+    <a href="ventas" class="small-box-footer">
+      
+      Más info <i class="fa fa-arrow-circle-right"></i>
+    
+    </a>
+    <div class="inner">
+      
+      <h3>$<?php echo number_format($ventas["total"],2); ?></h3>
+
+      <p>ADEUDOS</p>
     
     </div>
     
@@ -55,9 +67,23 @@ $totalProductos = count($productos);
     
       <h3><?php echo number_format($totalCategorias); ?></h3>
 
-      <p>CARRERAS</p>
+      <p>Escuelas</p>
     
     </div>
+
+    <a href="ventas" class="small-box-footer">
+      
+      Más info <i class="fa fa-arrow-circle-right"></i>
+    
+    </a>
+    
+    <div class="inner">
+    
+    <h3><?php echo number_format($totalCategorias); ?></h3>
+
+    <p>Modalidades</p>
+  
+  </div>
     
     <div class="icon">
     
@@ -86,6 +112,18 @@ $totalProductos = count($productos);
       <p>ESTUDIANTES</p>
   
     </div>
+    <a href="ventas" class="small-box-footer">
+      
+      Más info <i class="fa fa-arrow-circle-right"></i>
+    
+    </a>
+    <div class="inner">
+    
+    <h3><?php echo number_format($totalClientes); ?></h3>
+
+    <p>DOCENTES</p>
+
+  </div>
     
     <div class="icon">
     
@@ -111,9 +149,23 @@ $totalProductos = count($productos);
     
       <h3><?php echo number_format($totalProductos); ?></h3>
 
-      <p>MATERIAS</p>
+      <p>GRUPOS</p>
     
     </div>
+
+    <a href="ventas" class="small-box-footer">
+      
+      Más info <i class="fa fa-arrow-circle-right"></i>
+    
+    </a>
+
+    <div class="inner">
+    
+    <h3><?php echo number_format($totalProductos); ?></h3>
+
+    <p>HORARIOS</p>
+  
+  </div>
     
     <div class="icon">
       

@@ -18,12 +18,7 @@ class ControladorCategorias{
 
 				$datos = array("id_categoria" => $_POST["nuevaCategoria"],
 							   "codigo" => $_POST["nuevoCodigo"],
-							   "cuenta" => $_POST["nuevaCuenta"],
 							   "direccion" => $_POST["nuevaDireccion"],
-							   "ZT" => $_POST["ZT"],
-							   "Localidad" => $_POST["nuevaDireccion"],
-							   "Municipio" => $_POST["Municipio"],
-							   "Encargado" => $_POST["Encargado"],
 							   "telefono" => $_POST["nuevotelefono"]);
 
 
@@ -35,13 +30,13 @@ class ControladorCategorias{
 
 					swal({
 						  type: "success",
-						  title: "La Escuela ha sido guardada correctamente",
+						  title: "Los Horarios han sido guardada correctamente",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
 									if (result.value) {
 
-									window.location = "categorias";
+									window.location = "horarios";
 
 									}
 								})
@@ -57,13 +52,13 @@ class ControladorCategorias{
 
 					swal({
 						  type: "error",
-						  title: "¡El nombre de la Escuela no puede ir vacía o llevar caracteres especiales!",
+						  title: "¡El nombre de la Horarios no puede ir vacía o llevar caracteres especiales!",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
 							if (result.value) {
 
-							window.location = "categorias";
+							window.location = "horarios";
 
 							}
 						})
@@ -113,13 +108,13 @@ class ControladorCategorias{
 
 					swal({
 						  type: "success",
-						  title: "La Escuela ha sido cambiada correctamente",
+						  title: "La Horarios ha sido cambiada correctamente",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
 									if (result.value) {
 
-									window.location = "categorias";
+									window.location = "horarios";
 
 									}
 								})
@@ -135,13 +130,13 @@ class ControladorCategorias{
 
 					swal({
 						  type: "error",
-						  title: "¡La Escuela no puede ir vacía o llevar caracteres especiales!",
+						  title: "¡La Horarios no puede ir vacía o llevar caracteres especiales!",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
 							if (result.value) {
 
-							window.location = "categorias";
+							window.location = "horarios";
 
 							}
 						})
@@ -173,7 +168,7 @@ class ControladorCategorias{
 
 					swal({
 						  type: "success",
-						  title: "La Escuela ha sido borrada correctamente",
+						  title: "El horario ha sido borrada correctamente",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){

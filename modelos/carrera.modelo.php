@@ -10,12 +10,16 @@ class ModeloCarrera{
 
 	static public function mdlIngresarCarrera($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(escuela, codigo, carrera,cordinador) VALUES (:escuela, :codigo, :carrera, :cordinador)");
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(escuela, codigo, carrera, Meses, Turno, planestudio, cordinador ) VALUES (:escuela, :codigo, :carrera, :Meses, :Turno, :planestudio, :cordinador)");
 
-		$stmt->bindParam(":escuela", $datos["escuela"], PDO::PARAM_STR);
-		$stmt->bindParam(":codigo", $datos["codigo"], PDO::PARAM_STR);
-		$stmt->bindParam(":carrera", $datos["carrera"], PDO::PARAM_STR);
+		$stmt->bindParam(":escuela", $datos["Escuela"], PDO::PARAM_STR);
+		$stmt->bindParam(":codigo", $datos["codigoModalidad"], PDO::PARAM_STR);
+		$stmt->bindParam(":carrera", $datos["NombreModalidad"], PDO::PARAM_STR);
+		$stmt->bindParam(":Meses", $datos["Meses"], PDO::PARAM_STR);
 		$stmt->bindParam(":cordinador", $datos["cordinador"], PDO::PARAM_STR);
+		$stmt->bindParam(":Turno", $datos["turno"], PDO::PARAM_STR);
+		$stmt->bindParam(":planestudio", $datos["planestudio"], PDO::PARAM_STR);
+		
 	
 
 		if($stmt->execute()){

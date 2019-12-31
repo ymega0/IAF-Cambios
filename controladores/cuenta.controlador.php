@@ -1,33 +1,28 @@
 <?php
 
-class ControladorCategorias{
+class ControladorCuentas{
 
 	/*=============================================
 	CREAR CATEGORIAS
 	=============================================*/
 
-	static public function ctrCrearCategoria(){
+	static public function ctrCrearCuenta(){
 
-		if(isset($_POST["nuevaCategoria"])){
+		if(isset($_POST["nuevaCuenta"])){
 
-			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaCategoria"])){
+			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaCuenta"])){
 
-				$tabla = "categorias";
+				$tabla = "cuenta";
 
 				
 
-				$datos = array("id_categoria" => $_POST["nuevaCategoria"],
-							   "codigo" => $_POST["nuevoCodigo"],
-							   "cuenta" => $_POST["nuevaCuenta"],
-							   "direccion" => $_POST["nuevaDireccion"],
-							   "ZT" => $_POST["ZT"],
-							   "Localidad" => $_POST["nuevaDireccion"],
-							   "Municipio" => $_POST["Municipio"],
-							   "Encargado" => $_POST["Encargado"],
-							   "telefono" => $_POST["nuevotelefono"]);
+                $datos = array("nuevaCuenta" => $_POST["nuevaCuenta"],
+              
+			
+							   "rfc" => $_POST["rfc"]);
 
 
-				$respuesta = ModeloCategorias::mdlIngresarCategoria($tabla, $datos);
+				$respuesta = ModeloCuentas::mdlIngresarCuentas($tabla, $datos);
 
 				if($respuesta == "ok"){
 
@@ -35,13 +30,13 @@ class ControladorCategorias{
 
 					swal({
 						  type: "success",
-						  title: "La Escuela ha sido guardada correctamente",
+						  title: "La Cuenta ha sido guardada correctamente",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
 									if (result.value) {
 
-									window.location = "categorias";
+									window.location = "cuentas";
 
 									}
 								})
@@ -57,13 +52,13 @@ class ControladorCategorias{
 
 					swal({
 						  type: "error",
-						  title: "¡El nombre de la Escuela no puede ir vacía o llevar caracteres especiales!",
+						  title: "¡La Cuenta no puede ir vacía o llevar caracteres especiales!",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
 							if (result.value) {
 
-							window.location = "categorias";
+							window.location = "cuentas";
 
 							}
 						})
@@ -80,9 +75,9 @@ class ControladorCategorias{
 	MOSTRAR CATEGORIAS
 	=============================================*/
 
-	static public function ctrMostrarCategorias($item, $valor){
+	static public function ctrMostrarCuentas($item, $valor){
 
-		$tabla = "categorias";
+		$tabla = "cuenta";
 
 		$respuesta = ModeloCategorias::mdlMostrarCategorias($tabla, $item, $valor);
 

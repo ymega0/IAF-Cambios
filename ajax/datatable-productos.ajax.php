@@ -44,7 +44,8 @@ class TablaProductos{
   			=============================================*/ 
 
 		  	$item = "id";
-		  	$valor = $productos[$i]["id_categoria"];
+			  $valor = $productos[$i]["id_categoria"];
+			
 
 		  	$categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
 
@@ -86,7 +87,8 @@ class TablaProductos{
 			      "'.$imagen.'",
 			      "'.$productos[$i]["codigo"].'",
 			      "'.$productos[$i]["descripcion"].'",
-			      "'.$categorias["categoria"].'",
+				  "'.$categorias["categoria"].'",
+				  "'.$categorias["cuenta"].'",
 			      "'.$stock.'",
 			      "'.$productos[$i]["precio_compra"].'",
 			      "'.$productos[$i]["precio_venta"].'",

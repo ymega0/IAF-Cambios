@@ -229,6 +229,12 @@ MODAL AGREGAR USUARIO
 
                   <option value="Vendedor">Vendedor</option>
 
+                  <option value="Docente">Docente</option>
+
+                  <option value="Coordinador">Coordinador</option>
+
+
+
                 </select>
 
               </div>

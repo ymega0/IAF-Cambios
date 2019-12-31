@@ -20,45 +20,60 @@
 			</li>';
 		}
 		if($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"] == "Especial"){
-			echo '<li>
+			echo '
+			<li>
+				<a href="cuentas">
+					<i class="fa fa-credit-card-alt "></i>
+					<span>Cuenta</span>
+					</a>
+				</li>
+			
+			<li>
 				<a href="categorias">
-					<i class="fa fa-th"></i>
+					<i class="fa fa-university "></i>
 					<span>Escuelas</span>
 				</a>
 			</li>
 			<li>
 				<a href="carrera">
-					<i class="fa fa-th"></i>
-					<span>Carreras</span>
+					<i class="fa fa-bookmark "></i>
+					<span>Modalidades</span>
 				</a>
 			</li>
+
 			<li>
+				<a href="grado">
+					<i class="fa fa-graduation-cap "></i>
+					<span>Grado</span>
+				</a>
+			</li>
+
+			<li>
+				<a href="grupos">
+					<i class="fa fa-users "></i>
+					<span>Grupo</span>
+				</a>
+			</li>
+
+			<li>
+			<a href="horarios">
+				<i class="fa fa-hourglass "></i>
+				<span>Horarios</span>
+			</a>
+		</li>
+
+		<li>
 				<a href="materias">
-					<i class="fa fa-th"></i>
+					<i class="fa fa-flask"></i>
 					<span>Materias</span>
 				</a>
 			</li>
-			<li>
-				<a href="productos">
-					<i class="fa fa-product-hunt"></i>
-					<span>Pagos</span>
-				</a>
-			</li>';
-		}
-		if($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"] == "Vendedor"){
-			echo '<li>
-				<a href="clientes">
-					<i class="fa fa-users"></i>
-					<span>Inscripción de Alumno</span>
-				</a>
-			</li>';
-		}
-		if($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"] == "Vendedor"){
-			echo '<li class="treeview">
+
+		<li class="treeview">
 				<a href="#">
-					<i class="fa fa-list-ul"></i>
+					<i class="fa fa-check-square"></i>
 					
-					<span>Pagos</span>
+					<span>Evaluación</span>
 					
 					<span class="pull-right-container">
 					
@@ -71,14 +86,82 @@
 						<a href="ventas">
 							
 							<i class="fa fa-circle-o"></i>
-							<span>Administrar Pagos</span>
+							<span>Evaluación por Materia</span>
 						</a>
 					</li>
 					<li>
 						<a href="crear-venta">
 							
 							<i class="fa fa-circle-o"></i>
-							<span>Crear Pago</span>
+							<span>Calificaciones por Grupo</span>
+						</a>
+					</li>
+
+					<li>
+						<a href="crear-venta">
+							
+							<i class="fa fa-circle-o"></i>
+							<span>Evaluación Docente</span>
+						</a>
+					</li>
+			
+			
+			</ul>
+			</li>
+			<li>
+			<a href="crear-venta">
+				
+				<i class="fa fa-briefcase"></i>
+				<span>Trámites</span>
+			</a>
+		</li>
+'
+
+			
+			
+			;
+		}
+		if($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"] == "Vendedor"){
+			echo '<li>
+				<a href="clientes">
+					<i class="fa fa-child"></i>
+					<span>Gestion de Alumnos</span>
+				</a>
+			</li>';
+		}
+		if($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"] == "Vendedor"){
+			echo '<li class="treeview">
+				<a href="#">
+					<i class="fa fa-list-ul"></i>
+					
+					<span>Cobranza</span>
+					
+					<span class="pull-right-container">
+					
+						<i class="fa fa-angle-left pull-right"></i>
+					</span>
+				</a>
+				<ul class="treeview-menu">
+					
+					<li>
+						<a href="ventas">
+							
+							<i class="fa fa-circle-o"></i>
+							<span>Administrar Cobranza</span>
+						</a>
+					</li>
+					<li>
+						<a href="crear-venta">
+							
+							<i class="fa fa-circle-o"></i>
+							<span>Generar Pago</span>
+						</a>
+					</li>
+					<li>
+						<a href="productos">
+							
+							<i class="fa fa-circle-o"></i>
+							<span>Crear nuevo Pago</span>
 						</a>
 					</li>';
 					if($_SESSION["perfil"] == "Administrador"){
@@ -94,7 +177,7 @@
 					<a href="#">
 						<i class="fa fa-list-ul"></i>
 						
-						<span>Pagos</span>
+						<span>Adeudos</span>
 						
 						<span class="pull-right-container">
 						
@@ -107,14 +190,14 @@
 							<a href="ventas">
 								
 								<i class="fa fa-circle-o"></i>
-								<span>Administrar Pagos</span>
+								<span>Administrar Adeudos</span>
 							</a>
 						</li>
 						<li>
 							<a href="crear-adeudo">
 								
 								<i class="fa fa-circle-o"></i>
-								<span>Crear Pago</span>
+								<span>Crear Adeudo</span>
 							</a>
 						</li>';
 						if($_SESSION["perfil"] == "Administrador"){
@@ -122,7 +205,7 @@
 							<a href="reportes">
 								
 								<i class="fa fa-circle-o"></i>
-								<span>Reporte de Pagos</span>
+								<span>Reporte de Adeudos</span>
 							</a>
 						</li>';
 						}

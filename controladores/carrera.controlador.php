@@ -8,18 +8,21 @@ class ControladorCarrera{
 
 	static public function ctrCrearCarrera(){
 
-		if(isset($_POST["nuevaCarrera"])){
+		if(isset($_POST["codigoModalidad"])){
 
-			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaCarrera"])){
+			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["codigoModalidad"])){
 
 				$tabla = "carrera";
 
 				
 
-				$datos = array("carrera" => $_POST["nuevaCarrera"],
-							   "codigo" => $_POST["nuevoCodigo"],
-							   "cordinador" => $_POST["nuevoCordinador"],
-							   "escuela" => $_POST["nuevaCategoria"]);
+				$datos = array("codigoModalidad" => $_POST["codigoModalidad"],
+							   "NombreModalidad" => $_POST["NombreModalidad"],
+							   "Escuela" => $_POST["Escuela"],
+							   "Meses" => $_POST["Meses"],
+							   "turno" => $_POST["turno"],
+							   "cordinador" => $_POST["cordinador"],
+							   "planestudio" => $_POST["planestudios"]);
 
 
 				$respuesta = ModeloCarrera::mdlIngresarCarrera($tabla, $datos);

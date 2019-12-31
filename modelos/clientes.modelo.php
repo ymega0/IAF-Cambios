@@ -26,6 +26,8 @@ class ModeloClientes{
 			Grado, 
 			Grupo, 
 			MatriculaInterna,
+			Modalidad,
+			Escuela,
 			MatriculaOficial) 
 			VALUES 
 			(:nombre, 
@@ -48,9 +50,13 @@ class ModeloClientes{
 			:Grado, 
 			:Grupo, 
 			:MatriculaInterna,
+			:Modalidad,
+			:Escuela,
 			:MatriculaOficial)
 			");
 		$stmt->bindParam(":nombre",           $datos["nombre"],           PDO::PARAM_STR);
+		$stmt->bindParam(":Escuela",          $datos["Escuela"],           PDO::PARAM_STR);
+		$stmt->bindParam(":Modalidad",        $datos["Modalidad"],           PDO::PARAM_STR);
 		$stmt->bindParam(":apellido_paterno", $datos["apellido_paterno"], PDO::PARAM_STR);
 		$stmt->bindParam(":apellido_materno", $datos["apellido_materno"], PDO::PARAM_STR);
 		$stmt->bindParam(":fecha_nacimiento", $datos["fecha_nacimiento"], PDO::PARAM_STR);

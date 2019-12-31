@@ -100,6 +100,7 @@ class ControladorProductos{
 
 				$datos = array("id_categoria" => $_POST["nuevaCategoria"],
 							   "codigo" => $_POST["nuevoCodigo"],
+							   "grupo" => $_POST["grupo"],
 							   "descripcion" => $_POST["nuevaDescripcion"],
 							   "stock" => $_POST["nuevoStock"],
 							   "precio_compra" => $_POST["nuevoPrecioCompra"],
@@ -114,7 +115,7 @@ class ControladorProductos{
 
 						swal({
 							  type: "success",
-							  title: "La Materia ha sido guardado correctamente",
+							  title: "El pago ha sido guardado correctamente",
 							  showConfirmButton: true,
 							  confirmButtonText: "Cerrar"
 							  }).then(function(result){
@@ -136,7 +137,7 @@ class ControladorProductos{
 
 					swal({
 						  type: "error",
-						  title: "¡La Materia no puede ir con los campos vacíos o llevar caracteres especiales!",
+						  title: "¡El Pago no puede ir con los campos vacíos o llevar caracteres especiales!",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
@@ -327,7 +328,7 @@ class ControladorProductos{
 
 				swal({
 					  type: "success",
-					  title: "La Materia ha sido borrada correctamente",
+					  title: "El pago ha sido borrada correctamente",
 					  showConfirmButton: true,
 					  confirmButtonText: "Cerrar"
 					  }).then(function(result){

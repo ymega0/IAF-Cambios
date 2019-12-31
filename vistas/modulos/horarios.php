@@ -20,7 +20,7 @@ if($_SESSION["perfil"] == "Vendedor"){
     
     <h1>
       
-      Administrar Escuela
+      Administrar Horarios
 
 
     
@@ -30,7 +30,7 @@ if($_SESSION["perfil"] == "Vendedor"){
       
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
       
-      <li class="active">Administrar Escuelas</li>
+      <li class="active">Administrar Horarios</li>
     
     </ol>
 
@@ -44,7 +44,7 @@ if($_SESSION["perfil"] == "Vendedor"){
   
         <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarCategoria">
           
-          Agregar Escuela
+          Agregar Horarios
 
         </button>
 
@@ -60,14 +60,15 @@ if($_SESSION["perfil"] == "Vendedor"){
            
            <th style="width:10px">#</th>
            <th>Escuela</th>
-           <th>Cuenta</th>
-           <th>C.T</th>
-           <th>ZT</th>
-           <th>Direccion</th>
-           <th>Localidad</th>
-           <th>Municipio</th>
-           <th>Encargado</th>
-           <th>Telefono</th>
+           <th>Codigo</th>
+           <th>Modalidad</th>
+           <th>Duracion</th>
+           <th>Ciclo Escolar</th>
+           <th>Turno</th>
+           <th>Tipo Plan</th>
+           <th>Generacion</th>
+           <th>Cordinador</th>
+           <th>Acciones</th>
 
          </tr> 
 
@@ -80,7 +81,7 @@ if($_SESSION["perfil"] == "Vendedor"){
           $item = null;
           $valor = null;
 
-          $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
+          $categorias = ControladorCarrera::ctrMostrarCarrera($item, $valor);
 
           foreach ($categorias as $key => $value) {
            
@@ -88,18 +89,19 @@ if($_SESSION["perfil"] == "Vendedor"){
 
                     <td>'.($key+1).'</td>
 
-                    <td class="text-uppercase">'.$value["categoria"].'</td>
+                    <td class="text-uppercase">'.$value["escuela"].'</td>
 
-                    <td class="text-uppercase">'.$value["cuenta"].'</td>
                     <td class="text-uppercase">'.$value["codigo"].'</td>
-                    <td class="text-uppercase">'.$value["ZT"].'</td>
 
-                    <td class="text-uppercase">'.$value["direccion"].'</td>
-                    <td class="text-uppercase">'.$value["Localidad"].'</td>
-                    <td class="text-uppercase">'.$value["Municipio"].'</td>
-                    <td class="text-uppercase">'.$value["Encargado"].'</td>
+                    <td class="text-uppercase">'.$value["carrera"].'</td>
 
-                    <td class="text-uppercase">'.$value["telefono"].'</td>
+                    <td> </td>
+                    <td> </td>
+                    <td> </td>
+                    <td> </td>
+                    <td> </td>
+
+                    <td class="text-uppercase">'.$value["cordinador"].'</td>
 
                     <td>
 
@@ -154,7 +156,7 @@ MODAL AGREGAR CATEGORÍA
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Agregar Escuela</h4>
+          <h4 class="modal-title">Agregar  Horarios</h4>
 
         </div>
 
@@ -174,7 +176,7 @@ MODAL AGREGAR CATEGORÍA
               
                 <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevaCategoria" placeholder="Nombre Oficial según catalogo de Centros de Trabajo" required>
+                <input type="text" class="form-control input-lg" name="idhorario" placeholder="Ingresar código del Horario" required>
 
               </div>
               <br>
@@ -182,20 +184,29 @@ MODAL AGREGAR CATEGORÍA
               
               <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-              <select class="form-control input-lg" id="nuevaCuenta" name="nuevaCuenta" required>
+              <input type="text" class="form-control input-lg" name="idModalidad" placeholder="Id Modalidad" required>
+
+            </div>
+            
+          <br>
+              <div class="input-group">
+              
+              <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+              <select class="form-control input-lg" id="nuevaCategoria" name="nuevaCategoria" required>
                 
-                <option value="">Selecionar Cuenta</option>
+                <option value="">Selecionar Escuela</option>
 
                 <?php
 
                 $item = null;
                 $valor = null;
 
-                $categorias = ControladorCuentas::ctrMostrarCuentas($item, $valor);
+                $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
 
                 foreach ($categorias as $key => $value) {
                   
-                  echo '<option value="'.$value["Cuenta"].'">'.$value["Cuenta"].'</option>';
+                  echo '<option value="'.$value["categoria"].'">'.$value["categoria"].'</option>';
                 }
 
                 ?>
@@ -203,75 +214,72 @@ MODAL AGREGAR CATEGORÍA
               </select>
 
             </div>
-                <br>
+              <br>
               <div class="input-group">
               
                 <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoCodigo" placeholder="Ingresar C. T." required>
+                <input type="text" class="form-control input-lg" name="idGrupo" placeholder="Id Grupo" required>
 
               </div>
-              <br>
 
+                   <br>
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="idGrado" placeholder="Id Grado" required>
+
+              </div>
+
+              
+
+              <br>
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                <input type="date-time" class="form-control input-lg" name="hinicio" placeholder="Hora Inicio" required>
+
+              </div>
+<br>
+<div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                <input type="date-time" class="form-control input-lg" name="hfinal" placeholder="Hora Final" required>
+
+              </div>
+
+              <br>
               <div class="input-group">
               
               <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-              <input type="text" class="form-control input-lg" name="ZT" placeholder="Ingresar Zona de Trabajo" required>
+              <select class="form-control input-lg" id="turno" name="nuevaCategoria" required>
+                
+                <option value="">Seleccionar turno</option>
+
+                <option value="Matutino">Matutino</option>
+                <option value="Vespertino">Vespertino</option>
+              
+
+                
+
+              </select>
+
 
             </div>
-
+      
             <br>
-
               <div class="input-group">
               
-              <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-              <input type="text" class="form-control input-lg" name="nuevaDireccion" placeholder="Ingresar Domicilio de la Escuela" required>
+                <input type="text" class="form-control input-lg" name="nuevoCodigo" placeholder="División de Bloques" required>
 
-            </div>
-
-            <br>
-
-            <div class="input-group">
-              
-              <span class="input-group-addon"><i class="fa fa-th"></i></span> 
-
-              <input type="text" class="form-control input-lg" name="nuevaDireccion" placeholder="Ingresar Localidad" required>
-
-            </div>
-
-            <br>
-
-            <div class="input-group">
-              
-              <span class="input-group-addon"><i class="fa fa-th"></i></span> 
-
-              <input type="text" class="form-control input-lg" name="Municipio" placeholder="Ingresar Municipio" required>
-
-            </div>
-
-            <br>
-
-            <div class="input-group">
-              
-              <span class="input-group-addon"><i class="fa fa-th"></i></span> 
-
-              <input type="text" class="form-control input-lg" name="nuevotelefono" placeholder="Ingresar Telefono" required>
-
-            </div>
-
-              <br>
-
-            <div class="input-group">
-              
-              <span class="input-group-addon"><i class="fa fa-th"></i></span> 
-
-              <input type="text" class="form-control input-lg" name="Encargado" placeholder="Ingresar Encargado del Centro de Trabajo" required>
-
-            </div>
-
-            <br>
+              </div>
+         
 
             </div>
   
@@ -287,14 +295,14 @@ MODAL AGREGAR CATEGORÍA
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="submit" class="btn btn-primary">Guardar Escuela</button>
+          <button type="submit" class="btn btn-primary">Guardar Horario</button>
 
         </div>
 
         <?php
 
-          $crearCategoria = new ControladorCategorias();
-          $crearCategoria -> ctrCrearCategoria();
+          $crearCarrera = new ControladorCarrera();
+          $crearCarrera -> ctrCrearCarrera();
 
         ?>
 

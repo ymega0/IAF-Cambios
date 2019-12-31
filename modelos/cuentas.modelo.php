@@ -2,25 +2,19 @@
 
 require_once "conexion.php";
 
-class ModeloCategorias{
+class ModeloCuentas{
 
 	/*=============================================
 	CREAR CATEGORIA
 	=============================================*/
 
-	static public function mdlIngresarCategoria($tabla, $datos){
+	static public function mdlIngresarCuentas($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(cuenta, categoria, codigo, direccion, telefono,Localidad,ZT,Municipio,Encargado) VALUES (:cuenta, :id_categoria, :codigo, :direccion, :telefono, :Localidad, :ZT, :Municipio, :Encargado)");
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(Cuenta, RFC) VALUES (:Cuenta, :RFC)");
 
-		$stmt->bindParam(":id_categoria", $datos["id_categoria"], PDO::PARAM_STR);
-		$stmt->bindParam(":codigo", $datos["codigo"], PDO::PARAM_STR);
-		$stmt->bindParam(":cuenta", $datos["cuenta"], PDO::PARAM_STR);
-		$stmt->bindParam(":direccion", $datos["direccion"], PDO::PARAM_STR);
-		$stmt->bindParam(":ZT", $datos["ZT"], PDO::PARAM_STR);
-		$stmt->bindParam(":Localidad", $datos["Localidad"], PDO::PARAM_STR);
-		$stmt->bindParam(":Municipio", $datos["Municipio"], PDO::PARAM_STR);
-		$stmt->bindParam(":Encargado", $datos["Encargado"], PDO::PARAM_STR);
-		$stmt->bindParam(":telefono", $datos["telefono"], PDO::PARAM_STR);
+		$stmt->bindParam(":Cuenta", $datos["nuevaCuenta"], PDO::PARAM_STR);
+		$stmt->bindParam(":RFC", $datos["rfc"], PDO::PARAM_STR);
+	
 	
 
 		if($stmt->execute()){

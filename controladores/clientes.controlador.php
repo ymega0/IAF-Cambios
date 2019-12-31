@@ -46,6 +46,8 @@ class ControladorClientes{
 								  "Grado"=>           $_POST["nuevoGrado"],
 								  "Grupo"=>           $_POST["nuevoGrupo"],
 								  "MatriculaInterna"=>$_POST["nuevoMatriculaInterna"],
+								  "Modalidad"=>$_POST["Modalidad"],
+								  "Escuela"=>$_POST["Escuela"],
 								  "MatriculaOficial"=>$_POST["nuevoMatriculaOficial"]);
 			   	$respuesta = ModeloClientes::mdlIngresarCliente($tabla, $datos);
 			   	if($respuesta == "ok"){

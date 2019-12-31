@@ -21,7 +21,7 @@ PRODUCTOS MÁS VENDIDOS
 	
 	<div class="box-header with-border">
   
-      <h3 class="box-title">Productos más vendidos</h3>
+      <h3 class="box-title">Modalidades más Inscritas</h3>
 
     </div>
 
